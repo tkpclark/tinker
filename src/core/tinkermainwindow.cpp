@@ -56,6 +56,7 @@ void TinkerMainWindow::on_loginPushButton_clicked()
     this->centralWidget()->deleteLater();
     InstallationWidget *installationWidget = new InstallationWidget(this);
     this->setCentralWidget(installationWidget);
+    this->setContentsMargins(0,0,0,0);
     installationWidget->show();
 }
 
