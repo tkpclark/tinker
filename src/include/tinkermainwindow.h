@@ -13,6 +13,7 @@ public:
     void initEnv();
     void initMainWindow();
     void initOtherWidgets();
+    QString getUserName();
 
 signals:
 
@@ -20,6 +21,7 @@ public slots:
     void on_loginPushButton_clicked();
 
 private:
+    QString userName;
 
 };
 

@@ -1,4 +1,5 @@
 #include "src/include/tinkermainwindow.h"
+#include "src/include/installationwidget.h"
 #include <QTextCodec>
 #include <QMessageBox>
 #include <QRegExp>
@@ -22,11 +23,11 @@ void TinkerMainWindow::initEnv()
 
 void TinkerMainWindow::initMainWindow()
 {
-    this->setStyleSheet("background-color: black;");
+    this->setStyleSheet("background-color: rgb(47,47,47);");
     int x = this->width()/4;
     int y =this->height()/8;
     this->setContentsMargins(x,y,x,y);
-    this->showFullScreen();
+//    this->showFullScreen();
     this->resize(800, 480);
 }
 
@@ -50,12 +51,15 @@ void TinkerMainWindow::initOtherWidgets()
 
 void TinkerMainWindow::on_loginPushButton_clicked()
 {
-    if(this->userNameLineEdit->text() == "Vasilis" &&
-       this->passwordLineEdit->text() == "123") {
-        this->centralWidget()->deleteLater();
-//        this->hide();
-        QMessageBox msgBox;
-        msgBox.setText(tr("×ßÄã"));
-        msgBox.exec();
-    }
+    // TODO login validate
+    this->userName = this->userNameLineEdit->text();
+    this->centralWidget()->deleteLater();
+    InstallationWidget *installationWidget = new InstallationWidget(this);
+    this->setCentralWidget(installationWidget);
+    installationWidget->show();
+}
+
+QString TinkerMainWindow::getUserName()
+{
+    return this->userName;
 }

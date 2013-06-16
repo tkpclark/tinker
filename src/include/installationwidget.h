@@ -9,11 +9,12 @@ class InstallationWidget : public QWidget, public Ui::InstallationWidget
     Q_OBJECT
 public:
     explicit InstallationWidget(QWidget *parent = 0);
+    void initOtherWidgets();
 
 signals:
 
 public slots:
-
+    void updateTime();
 };
 
 #endif // INSTALLATIONWIDGET_H
