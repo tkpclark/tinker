@@ -8,17 +8,8 @@ TinkerMainWindow::TinkerMainWindow(QWidget *parent) :
     QMainWindow(parent)
 {
     this->setupUi(this);
-    this->initEnv();
     this->initMainWindow();
     this->initOtherWidgets();
-}
-
-void TinkerMainWindow::initEnv()
-{
-    QTextCodec *codec = QTextCodec::codecForName("System");
-    QTextCodec::setCodecForLocale(codec);
-    QTextCodec::setCodecForCStrings(codec);
-    QTextCodec::setCodecForTr(codec);
 }
 
 void TinkerMainWindow::initMainWindow()

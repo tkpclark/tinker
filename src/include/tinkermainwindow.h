@@ -10,7 +10,6 @@ class TinkerMainWindow : public QMainWindow, public Ui::MainWindow
     Q_OBJECT
 public:
     explicit TinkerMainWindow(QWidget *parent = 0);
-    void initEnv();
     void initMainWindow();
     void initOtherWidgets();
     QString getUserName();

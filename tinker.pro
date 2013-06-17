@@ -13,3 +13,6 @@ SOURCES += \
 FORMS += \
     src/ui/mainwindow.ui \
     src/ui/installation.ui
+
+OTHER_FILES += \
+    qss/style.qss

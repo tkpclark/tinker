@@ -10,12 +10,12 @@ class InstallationWidget : public QWidget, public Ui::InstallationWidget
 public:
     explicit InstallationWidget(QWidget *parent = 0);
     void initOtherWidgets();
-    void updateTime();
 
 signals:
 
 public slots:
     void on_exitPushButton_clicked();
+    void updateTime();
 };
 
 #endif // INSTALLATIONWIDGET_H
