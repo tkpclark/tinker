@@ -1,0 +1,112 @@
+QMainWindow#MainWindow, QWidget#appListWidget {
+    background-color: rgb(47,47,47);
+}
+
+
+QWidget#centralwidget {
+    background:rgb(101,211,255);
+    border-radius: 10px;
+}
+
+QLabel#logoLabel {
+    color:white;
+}
+
+QWidget#userNameWidget, QWidget#passwordWidget, QLineEdit#userNameLineEdit, QLineEdit#passwordLineEdit {
+    background:white;
+    border-radius: 20px;
+}
+
+QLabel#userNameLabel, QLabel#passwordLabel{
+    color:rgb(101,211,255);
+    font:bold;
+}
+
+
+QWidget#loginWidget,  QPushButton#loginPushButton{
+    background:rgb(43,146,2);
+    border-radius: 20px;
+}
+
+QPushButton#loginPushButton {
+    color:white;
+    font:bold;
+    background:rgb(143,146,2);
+}
+
+QWidget#toolWidget {
+    background:black;
+    border-radius: 20px;
+}
+
+QLabel#logoLabel1, QLabel#userChoiceLabel, QLabel#indispensableLabel, QLabel#fineGameLabel, QLabel#newAppLabel {
+    color:white;
+    font:bold;
+}
+
+QLabel#timeLabel, QLabel#userNameWordLabel {
+    color:rgb(128,128,128);
+}
+
+QPushButton#exitPushButton {
+    color:rgb(128,128,128);
+    background:rgb(55,55,55);
+}
+
+QWidget#pageWidget {
+    background-color: rgb(38,38,38);
+}
+
+QWidget#userChoiceWidget {
+    background-color: rgb(25,117,0);
+}
+
+QWidget#indispensableWidget {
+    background-color: rgb(69,181,255);
+}
+
+QWidget#fineGameWidget {
+    background-color: rgb(255,127,0);
+}
+
+QWidget#newAppWidget {
+    background-color: rgb(248,0,74);
+}
+
+QWidget#recommendWidget {
+    background-color: rgb(203,203,203);
+}
+
+QPushButton#installPushButton {
+    background-color: rgb(46,150,2);
+    color:white;
+}
+
+QLabel#recommendLabel {
+    color: rgb(55,55,55);
+}
+
+QWidget#appWidget1 {
+    background-color: rgb(223,223,223);
+}
+
+QFrame#appSelectionFrame1 {
+    background-color: rgb(221,221,221);
+    border-radius: 6px;
+    border: 1px;
+    border-color: rgb(200,200,200);
+    border-style : outset;
+}
+
+QPushButton#appSelectionPushButton1 {
+    border: 1px;
+    text-align : right;
+}
+
+QLabel#appCrossPicLabel1 {
+    border: 0px;
+}
+
+QWidget#choosedWidget {
+    background-color: rgb(197,197,197);
+}

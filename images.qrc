@@ -4,5 +4,6 @@
         <file>images/user.png</file>
         <file>images/taobao.png</file>
         <file>images/time.png</file>
+        <file>qss/style.qss</file>
     </qresource>
 </RCC>
