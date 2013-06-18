@@ -1,6 +1,9 @@
 #include "src/include/tinkertest.h"
 #include "src/include/applist.h"
+#include "src/include/appinfo.h"
 #include <QDebug>
+
+
 void testAppList()
 {
     AppList appList;
@@ -12,13 +15,14 @@ void testAppList()
 
     for(it = apppointerlist.begin(); it != apppointerlist.end(); ++it)
     {
-        qDebug() << (*it)->getId()          \
-                 << (*it)->getName()        \
-                 << (*it)->getSize()        \
-                 << (*it)->getSummary()     \
-                 << (*it)->getDetail()      \
-                 << (*it)->getLevel()       \
-                 << (*it)->getPic();
+        AppInfo *app = *it;
+        qDebug() << app->getId()          \
+                 << app->getName()        \
+                 << app->getSize()        \
+                 << app->getSummary()     \
+                 << app->getDetail()      \
+                 << app->getLevel()       \
+                 << app->getPic().size();
 
     }
 

@@ -17,7 +17,7 @@ void TinkerMainWindow::initMainWindow()
     int x = this->width()/4;
     int y =this->height()/8;
     this->setContentsMargins(x,y,x,y);
-    this->showFullScreen();
+//    this->showFullScreen();
     this->resize(800, 480);
 }
 
@@ -27,7 +27,6 @@ void TinkerMainWindow::initOtherWidgets()
     int x = centralWidget->width()/8;
     int y = centralWidget->height()/8;
     centralWidget->setContentsMargins(x,y,x,y);
-    this->loginWidget->setStyleSheet("background:rgb(43,146,2); border-radius: 20px;");
 
 }
 

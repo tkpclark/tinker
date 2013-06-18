@@ -214,7 +214,7 @@
        <widget class="QWidget" name="navigationWidget" native="true">
         <property name="maximumSize">
          <size>
-          <width>152</width>
+          <width>164</width>
           <height>16777215</height>
          </size>
         </property>
@@ -243,8 +243,29 @@
             </size>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
             <item>
-             <widget class="QLabel" name="userChoiceLabel">
+             <widget class="QPushButton" name="userChoicePushButton">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>100</width>
+                <height>120</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <family>微软雅黑</family>
@@ -253,24 +274,39 @@
                 <bold>true</bold>
                </font>
               </property>
-              <property name="layoutDirection">
-               <enum>Qt::RightToLeft</enum>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
               </property>
               <property name="text">
                <string>用户自选</string>
               </property>
+              <property name="flat">
+               <bool>true</bool>
+              </property>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="userCrossLabel">
+             <widget class="QLabel" name="userChoiceTickLabel">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="maximumSize">
                <size>
-                <width>25</width>
-                <height>16777215</height>
+                <width>30</width>
+                <height>30</height>
                </size>
               </property>
               <property name="text">
                <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap resource="../../images.qrc">:/images/tick.png</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
               </property>
              </widget>
             </item>
@@ -282,12 +318,33 @@
            <property name="maximumSize">
             <size>
              <width>16777215</width>
-             <height>54</height>
+             <height>56</height>
             </size>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_7">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
             <item>
-             <widget class="QLabel" name="indispensableLabel">
+             <widget class="QPushButton" name="indispensablePushButton">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>100</width>
+                <height>50</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <family>微软雅黑</family>
@@ -296,24 +353,36 @@
                 <bold>true</bold>
                </font>
               </property>
-              <property name="layoutDirection">
-               <enum>Qt::RightToLeft</enum>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
               </property>
               <property name="text">
                <string>装机必备</string>
               </property>
+              <property name="flat">
+               <bool>true</bool>
+              </property>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="indispensableCrossLabel">
+             <widget class="QLabel" name="indispensableTickLabel">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="maximumSize">
                <size>
-                <width>25</width>
-                <height>16777215</height>
+                <width>30</width>
+                <height>30</height>
                </size>
               </property>
               <property name="text">
                <string/>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
               </property>
              </widget>
             </item>
@@ -325,12 +394,27 @@
            <property name="maximumSize">
             <size>
              <width>16777215</width>
-             <height>54</height>
+             <height>56</height>
             </size>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_8">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
             <item>
-             <widget class="QLabel" name="fineGameLabel">
+             <widget class="QPushButton" name="fineGamePushButton">
+              <property name="maximumSize">
+               <size>
+                <width>100</width>
+                <height>50</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <family>微软雅黑</family>
@@ -339,24 +423,36 @@
                 <bold>true</bold>
                </font>
               </property>
-              <property name="layoutDirection">
-               <enum>Qt::RightToLeft</enum>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
               </property>
               <property name="text">
                <string>精品游戏</string>
               </property>
+              <property name="flat">
+               <bool>true</bool>
+              </property>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="fineGameCrossLabel">
+             <widget class="QLabel" name="fineGameTickLabel">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="maximumSize">
                <size>
-                <width>25</width>
-                <height>16777215</height>
+                <width>30</width>
+                <height>30</height>
                </size>
               </property>
               <property name="text">
                <string/>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
               </property>
              </widget>
             </item>
@@ -368,12 +464,27 @@
            <property name="maximumSize">
             <size>
              <width>16777215</width>
-             <height>54</height>
+             <height>56</height>
             </size>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_9">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
             <item>
-             <widget class="QLabel" name="newAppLabel">
+             <widget class="QPushButton" name="newAppPushButton">
+              <property name="maximumSize">
+               <size>
+                <width>100</width>
+                <height>50</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <family>微软雅黑</family>
@@ -382,24 +493,36 @@
                 <bold>true</bold>
                </font>
               </property>
-              <property name="layoutDirection">
-               <enum>Qt::RightToLeft</enum>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
               </property>
               <property name="text">
                <string>新奇应用</string>
               </property>
+              <property name="flat">
+               <bool>true</bool>
+              </property>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="newAppCrossLabel">
+             <widget class="QLabel" name="newAppTickLabel">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="maximumSize">
                <size>
-                <width>25</width>
-                <height>16777215</height>
+                <width>30</width>
+                <height>30</height>
                </size>
               </property>
               <property name="text">
                <string/>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
               </property>
              </widget>
             </item>
@@ -411,12 +534,27 @@
            <property name="maximumSize">
             <size>
              <width>16777215</width>
-             <height>54</height>
+             <height>56</height>
             </size>
            </property>
            <layout class="QHBoxLayout" name="horizontalLayout_10">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
             <item>
-             <widget class="QLabel" name="recommendLabel">
+             <widget class="QPushButton" name="recommendPushButton">
+              <property name="maximumSize">
+               <size>
+                <width>100</width>
+                <height>50</height>
+               </size>
+              </property>
               <property name="font">
                <font>
                 <family>微软雅黑</family>
@@ -425,24 +563,36 @@
                 <bold>true</bold>
                </font>
               </property>
-              <property name="layoutDirection">
-               <enum>Qt::RightToLeft</enum>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
               </property>
               <property name="text">
                <string>最新推荐</string>
               </property>
+              <property name="flat">
+               <bool>true</bool>
+              </property>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="recommendCrossLabel">
+             <widget class="QLabel" name="recommendTickLabel">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="maximumSize">
                <size>
-                <width>25</width>
-                <height>16777215</height>
+                <width>30</width>
+                <height>30</height>
                </size>
               </property>
               <property name="text">
                <string/>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
               </property>
              </widget>
             </item>
@@ -459,7 +609,7 @@
           <number>0</number>
          </property>
          <property name="spacing">
-          <number>1</number>
+          <number>0</number>
          </property>
          <item row="0" column="1">
           <widget class="QWidget" name="appWidget2" native="true"/>
