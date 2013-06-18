@@ -1,7 +1,7 @@
 #include <QApplication>
 #include <QFile>
 #include "src/include/tinkermainwindow.h"
-
+#include "src/include/tinkertest.h"
 int main(int argc,char *argv[])
 {
     QApplication app(argc,argv);
@@ -13,6 +13,8 @@ int main(int argc,char *argv[])
     }
     TinkerMainWindow *win = new TinkerMainWindow;
     win->show();
+
+    testAppList();
     return app.exec();
 }
 
