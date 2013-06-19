@@ -9,7 +9,7 @@ void testAppList()
     AppList appList;
 
 
-    //test fetchApplist
+    /*--------test fetchApplist--------*/
 
     QList<AppInfo *> apppointerlist;
 
@@ -34,15 +34,21 @@ void testAppList()
 
 
 
-    //test installApplist
+
+    /*--------test installApplist--------*/
+
+    //define a InstallationResultList to save the return value of installApplist
     QList<InstallationResult *> list;
     list = appList.installApplist(apppointerlist);
 
     QList<InstallationResult *>::iterator it1;
     qDebug() << "result count: " << list.size();
+
+    InstallationResult *installationresult;
     for(it1 = list.begin(); it1 != list.end(); ++it1)
     {
-        qDebug() << (*it1)->success;// << " " << (*it1)->message;
+        installationresult = *it1;
+        qDebug() << installationresult->success << ", " << installationresult->message;
     }
 
 }

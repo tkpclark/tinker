@@ -53,6 +53,7 @@ AppList::AppList()
     }
     */
 }
+//to get a list of certain category
 QList<AppInfo *> AppList::fetchApplist(int category)
 {
     QList<AppInfo *> apppointerlist;
@@ -63,4 +64,40 @@ QList<AppInfo *> AppList::fetchApplist(int category)
             apppointerlist.append(&(*it));
     }
     return apppointerlist;
+}
+
+//
+QList<InstallationResult *> AppList::installApplist(QList<AppInfo *> applist)
+{
+
+    //just to be on the safe side
+    installationresultlist.clear();
+
+    ///////install the app in the list one by one
+    QList<AppInfo *>::iterator it;
+
+    //for return
+    QList<InstallationResult *> returnlist;
+
+    qDebug() << "install list:";
+
+    InstallationResult installationResult;
+
+    for(it = applist.begin(); it != applist.end(); ++it)
+    {
+        qDebug() << (*it)->getName();
+        //install one
+
+        //result
+
+        installationResult.success = true;
+        installationResult.message = "success";
+
+        installationresultlist.append(installationResult);
+        returnlist.append(&installationresultlist.last());
+
+    }
+
+
+    return returnlist;
 }
