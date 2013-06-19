@@ -1,4 +1,4 @@
-QMainWindow#MainWindow, QWidget#appListWidget {
+QMainWindow#MainWindow, #appListWidget {
     background-color: rgb(47,47,47);
 }
 
@@ -12,18 +12,18 @@ QLabel#logoLabel {
     color:white;
 }
 
-QWidget#userNameWidget, QWidget#passwordWidget, QLineEdit#userNameLineEdit, QLineEdit#passwordLineEdit {
+QWidget#userNameWidget, #passwordWidget, #userNameLineEdit, #passwordLineEdit {
     background:white;
     border-radius: 20px;
 }
 
-QLabel#userNameLabel, QLabel#passwordLabel{
+QLabel#userNameLabel, #passwordLabel{
     color:rgb(101,211,255);
     font:bold;
 }
 
 
-QWidget#loginWidget,  QPushButton#loginPushButton{
+QWidget#loginWidget,  #loginPushButton{
     background:rgb(43,146,2);
     border-radius: 20px;
 }
@@ -38,17 +38,17 @@ QWidget#toolWidget {
     border-radius: 20px;
 }
 
-QLabel#logoLabel1, QPushButton#userChoicePushButton, QPushButton#indispensablePushButton, QPushButton#fineGamePushButton, QPushButton#newAppPushButton {
+QLabel#logoLabel1, #userChoicePushButton, #indispensablePushButton, #fineGamePushButton, #newAppPushButton {
     color:white;
     font:bold;
 }
 
-QPushButton#newAppPushButton,  QPushButton#fineGamePushButton, QPushButton#indispensablePushButton, QPushButton#userChoicePushButton {
+QPushButton#newAppPushButton,  #fineGamePushButton, #indispensablePushButton, #userChoicePushButton {
     border:0px;
     text-align:right;
 }
 
-QLabel#timeLabel, QLabel#userNameWordLabel {
+QLabel#timeLabel, #userNameWordLabel {
     color:rgb(128,128,128);
 }
 
@@ -84,6 +84,11 @@ QWidget#recommendWidget {
 QPushButton#installPushButton {
     background-color: rgb(46,150,2);
     color:white;
+    border-radius: 8px;
+}
+
+QPushButton#installPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #dadbde, stop: 1 #f6f7fa);
 }
 
 QPushButton#recommendPushButton {
@@ -92,11 +97,14 @@ QPushButton#recommendPushButton {
     text-align:right;
 }
 
-QWidget#appWidget1 {
+
+QFrame#appFrame1, #appFrame2,  #appFrame3, #appFrame4, #appFrame5, #appFrame6, #appFrame7, #appFrame8, #appFrame9 {
+    border: 1px solid rgb(168,168,168);
+    padding: 2px;
     background-color: rgb(223,223,223);
 }
 
-QFrame#appSelectionFrame1 {
+QFrame#appSelectionFrame1, #appSelectionFrame2, #appSelectionFrame3, #appSelectionFrame4, #appSelectionFrame5, #appSelectionFrame6, #appSelectionFrame7, #appSelectionFrame8, #appSelectionFrame9 {
     background-color: rgb(221,221,221);
     border-radius: 6px;
     border: 1px;
@@ -104,12 +112,12 @@ QFrame#appSelectionFrame1 {
     border-style : outset;
 }
 
-QPushButton#appSelectionPushButton1 {
+QPushButton#appSelectionPushButton1, #appSelectionPushButton2, #appSelectionPushButton3, #appSelectionPushButton4, #appSelectionPushButton5, #appSelectionPushButton6, #appSelectionPushButton7, #appSelectionPushButton8, #appSelectionPushButton9 {
     border: 1px;
     text-align : right;
 }
 
-QLabel#appCrossPicLabel1 {
+QLabel#appTickPicLabel1, #appTickPicLabel2, #appTickPicLabel3, #appTickPicLabel4, #appTickPicLabel5, #appTickPicLabel6, #appTickPicLabel7, #appTickPicLabel8, #appTickPicLabel9 {
     border: 0px;
 }
 

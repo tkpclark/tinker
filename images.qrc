@@ -7,5 +7,20 @@
         <file>qss/style.qss</file>
         <file>images/tick.png</file>
         <file>images/choose.png</file>
+        <file>images/baidu.png</file>
+        <file>images/choose.png</file>
+        <file>images/angrybird.png</file>
+        <file>images/sohunews.png</file>
+        <file>images/sohuvideo.png</file>
+        <file>images/kuaiyue.png</file>
+        <file>images/qqbrowser.png</file>
+        <file>images/yingyongbao.png</file>
+        <file>images/chrome.png</file>
+        <file>images/starFive.png</file>
+        <file>images/starFour.png</file>
+        <file>images/starOne.png</file>
+        <file>images/starThree.png</file>
+        <file>images/starTwo.png</file>
+        <file>images/dot.png</file>
     </qresource>
 </RCC>

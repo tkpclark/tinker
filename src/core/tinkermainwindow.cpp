@@ -1,6 +1,5 @@
 #include "src/include/tinkermainwindow.h"
 #include "src/include/installationwidget.h"
-#include <QTextCodec>
 #include <QMessageBox>
 #include <QRegExp>
 

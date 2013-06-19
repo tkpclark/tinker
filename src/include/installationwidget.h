@@ -13,6 +13,7 @@
 #define TYPE_NEW_APP 3
 #define TYPE_RECOMMEND 4
 
+
 class ChoosedOption
 {
 public:
@@ -29,21 +30,35 @@ public:
     void initOtherWidgets();
     void getTickPixmap();
     void displayAppList(int type, QPushButton *pushButton, QLabel *tickLabel);
+    void changeSelectionState(QPushButton *pushButton, QLabel *tickLabel, int posion);
 
 signals:
 
 public slots:
+    void updateTime();
     void on_exitPushButton_clicked();
     void on_userChoicePushButton_clicked();
     void on_indispensablePushButton_clicked();
     void on_fineGamePushButton_clicked();
     void on_newAppPushButton_clicked();
     void on_recommendPushButton_clicked();
-    void updateTime();
+    void on_appSelectionPushButton1_clicked();
+    void on_appSelectionPushButton2_clicked();
+    void on_appSelectionPushButton3_clicked();
+    void on_appSelectionPushButton4_clicked();
+    void on_appSelectionPushButton5_clicked();
+    void on_appSelectionPushButton6_clicked();
+    void on_appSelectionPushButton7_clicked();
+    void on_appSelectionPushButton8_clicked();
+    void on_appSelectionPushButton9_clicked();
+
 
 private:
     QPixmap tickPixmap;
+    QPixmap selectionButtonTickPixmap;
     ChoosedOption *currentChoosedOption;
+    QString chooseInstall;
+    QString cancelChoose;
 
 };
 

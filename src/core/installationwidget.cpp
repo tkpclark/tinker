@@ -8,6 +8,7 @@
 #include <QPushButton>
 #include <QLabel>
 #include <QDebug>
+#include <QPalette>
 
 
 ChoosedOption::ChoosedOption(QPushButton *pushButton, QLabel *tickLabel)
@@ -20,12 +21,27 @@ InstallationWidget::InstallationWidget(QWidget *parent) :
     QWidget(parent)
 {
     this->setupUi(this);
+
+    // init choice option tick
     QPixmap pixmap;
     if (!pixmap.load(":/images/tick.png")) {
         qWarning("Failed to load images/target.png");
     }
     this->tickPixmap = pixmap;
+
+    // init app list tick
+    QPixmap pm;
+    if (!pm.load(":/images/choose.png")) {
+        qWarning("Failed to load images/choose.png");
+    }
+    this->selectionButtonTickPixmap = pm;
+
+    // init default option
     this->currentChoosedOption = new ChoosedOption(this->userChoicePushButton, this->userChoiceTickLabel);
+
+    // init app selection button text
+    this->chooseInstall = this->chooseInstall.fromLocal8Bit("选择安装");
+    this->cancelChoose = this->cancelChoose.fromLocal8Bit("取消选择");
     this->initOtherWidgets();
 
 }
@@ -123,4 +139,70 @@ void InstallationWidget::on_newAppPushButton_clicked()
 void InstallationWidget::on_recommendPushButton_clicked()
 {
     this->displayAppList(TYPE_RECOMMEND, this->recommendPushButton, this->recommendTickLabel);
+}
+
+void InstallationWidget::changeSelectionState(QPushButton *pushButton, QLabel *tickLabel, int posion)
+{
+    const QPixmap *tickPixmap = tickLabel->pixmap();
+    if(tickPixmap != 0 && !tickPixmap->isNull())
+    {
+        pushButton->setText(this->chooseInstall);
+        tickLabel->setPixmap(0);
+        QPalette pal = pushButton->palette();
+        pal.setColor(QPalette::ButtonText, Qt::black);
+        pushButton->setPalette(pal);
+    }
+    else
+    {
+        pushButton->setText(this->cancelChoose);
+        tickLabel->setPixmap(this->selectionButtonTickPixmap);
+        QPalette pal = pushButton->palette();
+        pal.setColor(QPalette::ButtonText, QColor(178,178,178));
+        pushButton->setPalette(pal);
+    }
+}
+
+void InstallationWidget::on_appSelectionPushButton1_clicked()
+{
+    this->changeSelectionState(this->appSelectionPushButton1, this->appTickPicLabel1, 1);
+}
+
+void InstallationWidget::on_appSelectionPushButton2_clicked()
+{
+    this->changeSelectionState(this->appSelectionPushButton2, this->appTickPicLabel2, 2);
+}
+
+void InstallationWidget::on_appSelectionPushButton3_clicked()
+{
+    this->changeSelectionState(this->appSelectionPushButton3, this->appTickPicLabel3, 3);
+}
+
+void InstallationWidget::on_appSelectionPushButton4_clicked()
+{
+    this->changeSelectionState(this->appSelectionPushButton4, this->appTickPicLabel4, 4);
+}
+
+void InstallationWidget::on_appSelectionPushButton5_clicked()
+{
+    this->changeSelectionState(this->appSelectionPushButton5, this->appTickPicLabel5, 5);
+}
+
+void InstallationWidget::on_appSelectionPushButton6_clicked()
+{
+    this->changeSelectionState(this->appSelectionPushButton6, this->appTickPicLabel6, 6);
+}
+
+void InstallationWidget::on_appSelectionPushButton7_clicked()
+{
+    this->changeSelectionState(this->appSelectionPushButton7, this->appTickPicLabel7, 7);
+}
+
+void InstallationWidget::on_appSelectionPushButton8_clicked()
+{
+    this->changeSelectionState(this->appSelectionPushButton8, this->appTickPicLabel8, 8);
+}
+
+void InstallationWidget::on_appSelectionPushButton9_clicked()
+{
+    this->changeSelectionState(this->appSelectionPushButton9, this->appTickPicLabel9, 9);
 }
