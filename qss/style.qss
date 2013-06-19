@@ -31,7 +31,6 @@ QWidget#loginWidget,  QPushButton#loginPushButton{
 QPushButton#loginPushButton {
     color:white;
     font:bold;
-    background:rgb(143,146,2);
 }
 
 QWidget#toolWidget {
@@ -39,9 +38,14 @@ QWidget#toolWidget {
     border-radius: 20px;
 }
 
-QLabel#logoLabel1, QLabel#userChoiceLabel, QLabel#indispensableLabel, QLabel#fineGameLabel, QLabel#newAppLabel {
+QLabel#logoLabel1, QPushButton#userChoicePushButton, QPushButton#indispensablePushButton, QPushButton#fineGamePushButton, QPushButton#newAppPushButton {
     color:white;
     font:bold;
+}
+
+QPushButton#newAppPushButton,  QPushButton#fineGamePushButton, QPushButton#indispensablePushButton, QPushButton#userChoicePushButton {
+    border:0px;
+    text-align:right;
 }
 
 QLabel#timeLabel, QLabel#userNameWordLabel {
@@ -82,8 +86,10 @@ QPushButton#installPushButton {
     color:white;
 }
 
-QLabel#recommendLabel {
-    color: rgb(55,55,55);
+QPushButton#recommendPushButton {
+    background-color: rgb(203,203,203);
+    border:0px;
+    text-align:right;
 }
 
 QWidget#appWidget1 {

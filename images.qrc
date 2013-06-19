@@ -5,5 +5,7 @@
         <file>images/taobao.png</file>
         <file>images/time.png</file>
         <file>qss/style.qss</file>
+        <file>images/tick.png</file>
+        <file>images/choose.png</file>
     </qresource>
 </RCC>
