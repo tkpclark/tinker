@@ -20,7 +20,8 @@ public:
 
 private:
     QList<AppInfo> applist;
-    QList<InstallationResult> installationresultlist;
+    InstallationResult installOneApp(QString apkPath);
+    QList<InstallationResult> installationResultList;
 };
 
 #endif // APPLIST_H

@@ -1,6 +1,7 @@
 #include "src/include/tinkertest.h"
 #include "src/include/applist.h"
 #include "src/include/appinfo.h"
+#include "src/include/linuxcommand.h"
 #include <QDebug>
 
 
@@ -51,4 +52,12 @@ void testAppList()
         qDebug() << installationresult->success << ", " << installationresult->message;
     }
 
+}
+
+
+void testLinuxCommand()
+{
+    LinuxCommand linuxCommand;
+    QString command = "ifconfig";
+    linuxCommand.execute(command);
 }

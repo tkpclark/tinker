@@ -7,7 +7,8 @@ HEADERS += \
     src/include/installationwidget.h \
     src/include/tinkertest.h \
     src/include/applist.h \
-    src/include/appinfo.h
+    src/include/appinfo.h \
+    src/include/linuxcommand.h
 
 SOURCES += \
     src/core/tinkermainwindow.cpp \
@@ -15,7 +16,8 @@ SOURCES += \
     src/core/installationwidget.cpp \
     src/base/applist.cpp \
     src/base/appinfo.cpp \
-    src/test/tinkertest.cpp
+    src/test/tinkertest.cpp \
+    src/base/linuxcommand.cpp
 
 FORMS += \
     src/ui/mainwindow.ui \

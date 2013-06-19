@@ -5,44 +5,55 @@ AppList::AppList()
 {
     AppInfo appInfo;
 
+
+    QString name = "taobao";
+    QString summary = "this is summary";
+    QString detail = "this is deatail";
+    QString picpath = "/path/pic/name";
+    QString apkpath = "/path/apk/name";
+
     appInfo.setId(1);
     appInfo.setCategory(1);
-    appInfo.setName("taobao");
+    appInfo.setName(name);
     appInfo.setLevel(4);
-    appInfo.setDetail("this is detail of the app");
-    appInfo.setPic("/path/aaa.pic");
+    appInfo.setDetail(detail);
+    appInfo.setPic(picpath);
     appInfo.setSize(1.54);
-    appInfo.setSummary("this is summary of the app");
+    appInfo.setSummary(summary);
+    appInfo.setApkPath(apkpath);
     this->applist.append(appInfo);
 
     appInfo.setId(2);
     appInfo.setCategory(1);
-    appInfo.setName("qq");
+    appInfo.setName(name);
     appInfo.setLevel(5);
-    appInfo.setDetail("this is detail of the app");
-    appInfo.setPic("/path/aaa.pic");
+    appInfo.setDetail(detail);
+    appInfo.setPic(picpath);
     appInfo.setSize(2.43);
-    appInfo.setSummary("this is summary of the app");
+    appInfo.setSummary(summary);
+    appInfo.setApkPath(apkpath);
     this->applist.append(appInfo);
 
     appInfo.setId(3);
     appInfo.setCategory(2);
-    appInfo.setName("baidu");
+    appInfo.setName(name);
     appInfo.setLevel(5);
-    appInfo.setDetail("this is detail of the app");
-    appInfo.setPic("/path/aaa.pic");
+    appInfo.setDetail(detail);
+    appInfo.setPic(picpath);
     appInfo.setSize(2.43);
-    appInfo.setSummary("this is summary of the app");
+    appInfo.setSummary(summary);
+    appInfo.setApkPath(apkpath);
     this->applist.append(appInfo);
 
     appInfo.setId(4);
     appInfo.setCategory(2);
-    appInfo.setName("google");
+    appInfo.setName(name);
     appInfo.setLevel(5);
-    appInfo.setDetail("this is detail of the app");
-    appInfo.setPic("/path/aaa.pic");
+    appInfo.setDetail(detail);
+    appInfo.setPic(picpath);
     appInfo.setSize(2.43);
-    appInfo.setSummary("this is summary of the app");
+    appInfo.setSummary(summary);
+    appInfo.setApkPath(apkpath);
     this->applist.append(appInfo);
 
     /*
@@ -66,12 +77,22 @@ QList<AppInfo *> AppList::fetchApplist(int category)
     return apppointerlist;
 }
 
+InstallationResult AppList::installOneApp(QString apkPath)
+{
+    InstallationResult installationResult;
+
+    installationResult.success = true;
+    installationResult.message = "success";
+
+    return installationResult;
+}
+
 //
 QList<InstallationResult *> AppList::installApplist(QList<AppInfo *> applist)
 {
 
     //just to be on the safe side
-    installationresultlist.clear();
+    installationResultList.clear();
 
     ///////install the app in the list one by one
     QList<AppInfo *>::iterator it;
@@ -85,16 +106,13 @@ QList<InstallationResult *> AppList::installApplist(QList<AppInfo *> applist)
 
     for(it = applist.begin(); it != applist.end(); ++it)
     {
-        qDebug() << (*it)->getName();
-        //install one
+        qDebug() << (*it)->getApkPath();
 
-        //result
+        installationResult = installOneApp((*it)->getApkPath());
 
-        installationResult.success = true;
-        installationResult.message = "success";
+        installationResultList.append(installationResult);
+        returnlist.append(&installationResultList.last());
 
-        installationresultlist.append(installationResult);
-        returnlist.append(&installationresultlist.last());
 
     }
 

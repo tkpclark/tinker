@@ -8,13 +8,14 @@ public:
     AppInfo();
 
     void setId(int id);
-    void setName(QString name);
-    void setPic(QString pic);
+    void setName(const QString &name);
+    void setPic(const QString &pic);
     void setSize(double size);
     void setLevel(int level);
-    void setSummary(QString summary);
-    void setDetail(QString detail);
+    void setSummary(const QString &summary);
+    void setDetail(const QString &detail);
     void setCategory(int category);
+    void setApkPath(const QString &apkPath);
 
     int     getId();
     QString getName();
@@ -24,6 +25,7 @@ public:
     QString getSummary();
     QString getDetail();
     int     getCategory();
+    QString getApkPath();
 
 private:
     int     id;
@@ -34,6 +36,7 @@ private:
     QString summary;
     QString detail;
     int     category;
+    QString apkPath;
 
 
 };

@@ -15,6 +15,7 @@ int main(int argc,char *argv[])
     win->show();
 
     testAppList();
+    testLinuxCommand();
     return app.exec();
 }
 

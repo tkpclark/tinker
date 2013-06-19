@@ -4,5 +4,6 @@
 
 
 void testAppList();
+void testLinuxCommand();
 
 #endif // TINKERTEST_H

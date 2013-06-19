@@ -9,12 +9,12 @@ void AppInfo::setId(int id)
 {
     this->id=id;
 }
-void AppInfo::setName(QString name)
+void AppInfo::setName(const QString &name)
 {
     this->name=name;
 }
 
-void AppInfo::setPic(QString pic)
+void AppInfo::setPic(const QString &pic)
 {
     QPixmap pixmap(pic);
     this->pic=pixmap;
@@ -33,14 +33,19 @@ void AppInfo::setLevel(int level)
     this->level=level;
 }
 
-void AppInfo::setSummary(QString summary)
+void AppInfo::setSummary(const QString &summary)
 {
     this->summary=summary;
 }
 
-void AppInfo::setDetail(QString detail)
+void AppInfo::setDetail(const QString &detail)
 {
     this->detail=detail;
+}
+
+void AppInfo::setApkPath(const QString &apkPath)
+{
+    this->apkPath=apkPath;
 }
 
 //get
@@ -82,4 +87,8 @@ QString AppInfo::getSummary()
 QString AppInfo::getDetail()
 {
     return this->detail;
+}
+QString AppInfo::getApkPath()
+{
+    return this->apkPath;
 }
