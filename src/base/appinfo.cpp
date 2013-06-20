@@ -4,7 +4,7 @@ AppInfo::AppInfo()
 {
 }
 
-//set
+//////////////get///////////////
 void AppInfo::setId(int id)
 {
     this->id=id;
@@ -19,10 +19,7 @@ void AppInfo::setPic(const QString &pic)
     QPixmap pixmap(pic);
     this->pic=pixmap;
 }
-void AppInfo::setCategory(int category)
-{
-    this->category=category;
-}
+
 void AppInfo::setSize(double size)
 {
     this->size=size;
@@ -48,7 +45,18 @@ void AppInfo::setApkPath(const QString &apkPath)
     this->apkPath=apkPath;
 }
 
-//get
+void AppInfo::setPackageName(const QString &packageName)
+{
+    this->packageName=packageName;
+}
+
+void AppInfo::setCategory(QString category)
+{
+    this->category=category;
+}
+
+
+//////////////get///////////////
 int AppInfo::getId()
 {
     return this->id;
@@ -69,11 +77,6 @@ double AppInfo::getSize()
     return this->size;
 }
 
-int AppInfo::getCategory()
-{
-    return this->category;
-}
-
 int AppInfo::getLevel()
 {
     return this->level;
@@ -88,7 +91,20 @@ QString AppInfo::getDetail()
 {
     return this->detail;
 }
+
 QString AppInfo::getApkPath()
 {
     return this->apkPath;
 }
+
+QString AppInfo::getPackageName()
+{
+    return this->packageName;
+}
+
+
+QString AppInfo::getCategory()
+{
+    return this->category;
+}
+

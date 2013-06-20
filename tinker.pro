@@ -1,3 +1,4 @@
+QT       += xml
 
 RESOURCES += \
     images.qrc

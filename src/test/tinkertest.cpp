@@ -4,17 +4,24 @@
 #include "src/include/linuxcommand.h"
 #include <QDebug>
 
-
-void testAppList()
+void testAll()
 {
-    AppList appList;
+    testAppList_fetchApplist();
+    //testAppList_installApplist();
+    //testAppList_loadXMLData();
+    //testLinuxCommand();
+}
 
+void testAppList_fetchApplist()
+{
 
     /*--------test fetchApplist--------*/
 
+    AppList appList;
+
     QList<AppInfo *> apppointerlist;
 
-    apppointerlist = appList.fetchApplist(2);
+    apppointerlist = appList.fetchApplist(3);
 
     QList<AppInfo *>::iterator it;
 
@@ -34,9 +41,16 @@ void testAppList()
     qDebug() << "list size: " << apppointerlist.size();
 
 
-
+}
+void testAppList_installApplist()
+{
 
     /*--------test installApplist--------*/
+
+    AppList appList;
+
+    QList<AppInfo *> apppointerlist;
+    apppointerlist = appList.fetchApplist(2);
 
     //define a InstallationResultList to save the return value of installApplist
     QList<InstallationResult *> list;
@@ -54,6 +68,13 @@ void testAppList()
 
 }
 
+
+void testAppList_loadXMLData()
+{
+    AppList appList;
+    //QString xmlFileName = "/Users/clark/tmp/test.xml";
+    //appList.loadXMLData(xmlFileName);
+}
 
 void testLinuxCommand()
 {

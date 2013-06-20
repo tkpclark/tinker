@@ -14,8 +14,7 @@ int main(int argc,char *argv[])
     TinkerMainWindow *win = new TinkerMainWindow;
     win->show();
 
-    testAppList();
-    testLinuxCommand();
+    testAll();
     return app.exec();
 }
 

@@ -14,8 +14,10 @@ public:
     void setLevel(int level);
     void setSummary(const QString &summary);
     void setDetail(const QString &detail);
-    void setCategory(int category);
     void setApkPath(const QString &apkPath);
+    void setPackageName(const QString &packageName);
+    void setCategory(QString category);
+
 
     int     getId();
     QString getName();
@@ -24,8 +26,9 @@ public:
     int     getLevel();
     QString getSummary();
     QString getDetail();
-    int     getCategory();
     QString getApkPath();
+    QString getPackageName();
+    QString getCategory();
 
 private:
     int     id;
@@ -35,9 +38,9 @@ private:
     int     level;
     QString summary;
     QString detail;
-    int     category;
     QString apkPath;
-
+    QString packageName;
+    QString category;
 
 };
 

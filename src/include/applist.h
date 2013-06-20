@@ -1,6 +1,6 @@
 #ifndef APPLIST_H
 #define APPLIST_H
-#include "appinfo.h"
+#include "src/include/appinfo.h"
 #include <QList>
 
 typedef struct InstallationResult
@@ -17,10 +17,11 @@ public:
     AppList();
     QList<AppInfo *> fetchApplist(int category);
     QList<InstallationResult *> installApplist(QList<AppInfo *>);
+    InstallationResult installOneApp(AppInfo *);
+    bool loadXMLData(QString &);
 
 private:
     QList<AppInfo> applist;
-    InstallationResult installOneApp(QString apkPath);
     QList<InstallationResult> installationResultList;
 };
 
