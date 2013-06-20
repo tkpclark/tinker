@@ -1,6 +1,5 @@
 #include "src/include/installationwidget.h"
 #include "src/include/tinkermainwindow.h"
-#include "src/include/applist.h"
 
 #include <QTimer>
 #include <QDateTime>
@@ -9,12 +8,22 @@
 #include <QLabel>
 #include <QDebug>
 #include <QPalette>
+#include <QBitmap>
 
 
 ChoosedOption::ChoosedOption(QPushButton *pushButton, QLabel *tickLabel)
 {
     this->pushButton = pushButton;
     this->tickLabel = tickLabel;
+}
+
+AppGrid::AppGrid(QLabel *appPicLabel, QLabel *appNameLabel, QLabel *appSizeContentLabel, QLabel *appLevelLabel, bool selected)
+{
+    this->appPicLabel = appPicLabel;
+    this->appNameLabel = appNameLabel;
+    this->appSizeContentLabel = appSizeContentLabel;
+    this->appLevelLabel = appLevelLabel;
+    this->selected = selected;
 }
 
 InstallationWidget::InstallationWidget(QWidget *parent) :
@@ -42,12 +51,7 @@ InstallationWidget::InstallationWidget(QWidget *parent) :
     // init app selection button text
     this->chooseInstall = this->chooseInstall.fromLocal8Bit("选择安装");
     this->cancelChoose = this->cancelChoose.fromLocal8Bit("取消选择");
-    this->initOtherWidgets();
 
-}
-
-void InstallationWidget::initOtherWidgets()
-{
     // init time display
     this->timeLabel->setText(QDateTime::currentDateTime().toString("hh:mm AP"));
     QTimer *timer = new QTimer;
@@ -64,7 +68,21 @@ void InstallationWidget::initOtherWidgets()
     {
         this->userNameWordLabel->setText(tk->getUserName());
     }
+    this->numLabel->setText("<font color='white'>1</font> 2 3 4 5 6 7 8 9");
 
+    // init appList
+    this->appList = new AppList;
+
+    // init appGridHash
+    this->appGridHash.insert(1, new AppGrid(this->appPicLabel1, this->appNameLabel1, this->appSizeContentLabel1, this->appLevelLabel1, false));
+    this->appGridHash.insert(2, new AppGrid(this->appPicLabel2, this->appNameLabel2, this->appSizeContentLabel2, this->appLevelLabel2, false));
+    this->appGridHash.insert(3, new AppGrid(this->appPicLabel3, this->appNameLabel3, this->appSizeContentLabel3, this->appLevelLabel3, false));
+    this->appGridHash.insert(4, new AppGrid(this->appPicLabel4, this->appNameLabel4, this->appSizeContentLabel4, this->appLevelLabel4, false));
+    this->appGridHash.insert(5, new AppGrid(this->appPicLabel5, this->appNameLabel5, this->appSizeContentLabel5, this->appLevelLabel5, false));
+    this->appGridHash.insert(6, new AppGrid(this->appPicLabel6, this->appNameLabel6, this->appSizeContentLabel6, this->appLevelLabel6, false));
+    this->appGridHash.insert(7, new AppGrid(this->appPicLabel7, this->appNameLabel7, this->appSizeContentLabel7, this->appLevelLabel7, false));
+    this->appGridHash.insert(8, new AppGrid(this->appPicLabel8, this->appNameLabel8, this->appSizeContentLabel8, this->appLevelLabel8, false));
+    this->appGridHash.insert(9, new AppGrid(this->appPicLabel9, this->appNameLabel9, this->appSizeContentLabel9, this->appLevelLabel9, false));
 }
 
 
@@ -78,7 +96,7 @@ void InstallationWidget::on_exitPushButton_clicked()
     QCoreApplication::exit();
 }
 
-void InstallationWidget::displayAppList(int type, QPushButton *pushButton, QLabel *tickLabel)
+void InstallationWidget::changeOptionButtonAndAppList(int type, QPushButton *pushButton, QLabel *tickLabel)
 {
     // update option size and display the tick
     if(this->currentChoosedOption->pushButton == pushButton)
@@ -99,8 +117,13 @@ void InstallationWidget::displayAppList(int type, QPushButton *pushButton, QLabe
     this->currentChoosedOption->tickLabel = tickLabel;
 
     // display app list
-    AppList appList;
-    QList<AppInfo *> appInfoList = appList.fetchApplist(type);
+    this->displayAppList(type);
+}
+
+void InstallationWidget::displayAppList(int type)
+{
+    QList<AppInfo *> appInfoList = this->appList->fetchApplist(type);
+    int count = 0;
     QList<AppInfo *>::iterator it;
     for(it = appInfoList.begin(); it != appInfoList.end(); ++it)
     {
@@ -118,27 +141,27 @@ void InstallationWidget::displayAppList(int type, QPushButton *pushButton, QLabe
 
 void InstallationWidget::on_userChoicePushButton_clicked()
 {
-    this->displayAppList(TYPE_USER_CHOICE, this->userChoicePushButton, this->userChoiceTickLabel);
+    this->changeOptionButtonAndAppList(TYPE_USER_CHOICE, this->userChoicePushButton, this->userChoiceTickLabel);
 }
 
 void InstallationWidget::on_indispensablePushButton_clicked()
 {
-    this->displayAppList(TYPE_INDISPENSABLE, this->indispensablePushButton, this->indispensableTickLabel);
+    this->changeOptionButtonAndAppList(TYPE_INDISPENSABLE, this->indispensablePushButton, this->indispensableTickLabel);
 }
 
 void InstallationWidget::on_fineGamePushButton_clicked()
 {
-    this->displayAppList(TYPE_FINE_GAME, this->fineGamePushButton, this->fineGameTickLabel);
+    this->changeOptionButtonAndAppList(TYPE_FINE_GAME, this->fineGamePushButton, this->fineGameTickLabel);
 }
 
 void InstallationWidget::on_newAppPushButton_clicked()
 {
-    this->displayAppList(TYPE_NEW_APP, this->newAppPushButton, this->newAppTickLabel);
+    this->changeOptionButtonAndAppList(TYPE_NEW_APP, this->newAppPushButton, this->newAppTickLabel);
 }
 
 void InstallationWidget::on_recommendPushButton_clicked()
 {
-    this->displayAppList(TYPE_RECOMMEND, this->recommendPushButton, this->recommendTickLabel);
+    this->changeOptionButtonAndAppList(TYPE_RECOMMEND, this->recommendPushButton, this->recommendTickLabel);
 }
 
 void InstallationWidget::changeSelectionState(QPushButton *pushButton, QLabel *tickLabel, int posion)

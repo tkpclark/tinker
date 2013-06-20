@@ -22,5 +22,13 @@
         <file>images/starThree.png</file>
         <file>images/starTwo.png</file>
         <file>images/dot.png</file>
+        <file>images/down.png</file>
+        <file>images/left.png</file>
+        <file>images/right.png</file>
+        <file>images/up.png</file>
+        <file>images/down_gray.png</file>
+        <file>images/left_gray.png</file>
+        <file>images/right_gray.png</file>
+        <file>images/up_gray.png</file>
     </qresource>
 </RCC>

@@ -61,6 +61,11 @@ QWidget#pageWidget {
     background-color: rgb(38,38,38);
 }
 
+QPushButton#upPushButton, #downPushButton, #leftPushButton, #rightPushButton {
+    background-color: rgb(38,38,38);
+    border:0px;
+}
+
 QWidget#userChoiceWidget {
     background-color: rgb(25,117,0);
 }
@@ -123,4 +128,8 @@ QLabel#appTickPicLabel1, #appTickPicLabel2, #appTickPicLabel3, #appTickPicLabel4
 
 QWidget#choosedWidget {
     background-color: rgb(197,197,197);
+}
+
+QLabel#numLabel {
+    color:rgb(80,80,80);
 }
