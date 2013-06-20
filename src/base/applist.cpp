@@ -80,9 +80,7 @@ AppList::AppList()
     }
     */
 
-    LinuxCommand linuxCommand;
-    QString command="ls ../../../../tinker/data";
-    linuxCommand.execute(command);
+
     QString xmlFileName = "../../../../tinker/data/test.xml";
     this->loadXMLData(xmlFileName);
 }
