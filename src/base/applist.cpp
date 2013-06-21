@@ -81,7 +81,8 @@ AppList::AppList()
     */
 
 
-    QString xmlFileName = "../../../../tinker/data/test.xml";
+//    QString xmlFileName = "../../../../tinker/data/test.xml";
+    QString xmlFileName = "../tinker_git/data/test.xml";
     this->loadXMLData(xmlFileName);
 }
 //to get a list of certain category
@@ -191,7 +192,7 @@ bool AppList::loadXMLData(QString &xmlFileName)
         qDebug() << tmpAppInfo.getDetail();
         qDebug() << tmpAppInfo.getLevel();
         qDebug() << tmpAppInfo.getPackageName();
-        qDebug() << tmpAppInfo.getPic();
+        qDebug() << tmpAppInfo.getPic().size();
         qDebug() << tmpAppInfo.getSize();
         qDebug() << tmpAppInfo.getSummary();
         qDebug() << tmpAppInfo.getCategory();

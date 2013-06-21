@@ -9,6 +9,7 @@
 #include <QDebug>
 #include <QPalette>
 #include <QBitmap>
+#include <QHashIterator>
 
 
 ChoosedOption::ChoosedOption(QPushButton *pushButton, QLabel *tickLabel)
@@ -17,8 +18,9 @@ ChoosedOption::ChoosedOption(QPushButton *pushButton, QLabel *tickLabel)
     this->tickLabel = tickLabel;
 }
 
-AppGrid::AppGrid(QLabel *appPicLabel, QLabel *appNameLabel, QLabel *appSizeContentLabel, QLabel *appLevelLabel, bool selected)
+AppGrid::AppGrid(QFrame *appFrame, QLabel *appPicLabel, QLabel *appNameLabel, QLabel *appSizeContentLabel, QLabel *appLevelLabel, bool selected)
 {
+    this->appFrame = appFrame;
     this->appPicLabel = appPicLabel;
     this->appNameLabel = appNameLabel;
     this->appSizeContentLabel = appSizeContentLabel;
@@ -74,15 +76,57 @@ InstallationWidget::InstallationWidget(QWidget *parent) :
     this->appList = new AppList;
 
     // init appGridHash
-    this->appGridHash.insert(1, new AppGrid(this->appPicLabel1, this->appNameLabel1, this->appSizeContentLabel1, this->appLevelLabel1, false));
-    this->appGridHash.insert(2, new AppGrid(this->appPicLabel2, this->appNameLabel2, this->appSizeContentLabel2, this->appLevelLabel2, false));
-    this->appGridHash.insert(3, new AppGrid(this->appPicLabel3, this->appNameLabel3, this->appSizeContentLabel3, this->appLevelLabel3, false));
-    this->appGridHash.insert(4, new AppGrid(this->appPicLabel4, this->appNameLabel4, this->appSizeContentLabel4, this->appLevelLabel4, false));
-    this->appGridHash.insert(5, new AppGrid(this->appPicLabel5, this->appNameLabel5, this->appSizeContentLabel5, this->appLevelLabel5, false));
-    this->appGridHash.insert(6, new AppGrid(this->appPicLabel6, this->appNameLabel6, this->appSizeContentLabel6, this->appLevelLabel6, false));
-    this->appGridHash.insert(7, new AppGrid(this->appPicLabel7, this->appNameLabel7, this->appSizeContentLabel7, this->appLevelLabel7, false));
-    this->appGridHash.insert(8, new AppGrid(this->appPicLabel8, this->appNameLabel8, this->appSizeContentLabel8, this->appLevelLabel8, false));
-    this->appGridHash.insert(9, new AppGrid(this->appPicLabel9, this->appNameLabel9, this->appSizeContentLabel9, this->appLevelLabel9, false));
+    this->appGridHash.insert(1, new AppGrid(this->appFrame1, this->appPicLabel1, this->appNameLabel1, this->appSizeContentLabel1, this->appLevelLabel1, false));
+    this->appGridHash.insert(2, new AppGrid(this->appFrame2, this->appPicLabel2, this->appNameLabel2, this->appSizeContentLabel2, this->appLevelLabel2, false));
+    this->appGridHash.insert(3, new AppGrid(this->appFrame3, this->appPicLabel3, this->appNameLabel3, this->appSizeContentLabel3, this->appLevelLabel3, false));
+    this->appGridHash.insert(4, new AppGrid(this->appFrame4, this->appPicLabel4, this->appNameLabel4, this->appSizeContentLabel4, this->appLevelLabel4, false));
+    this->appGridHash.insert(5, new AppGrid(this->appFrame5, this->appPicLabel5, this->appNameLabel5, this->appSizeContentLabel5, this->appLevelLabel5, false));
+    this->appGridHash.insert(6, new AppGrid(this->appFrame6, this->appPicLabel6, this->appNameLabel6, this->appSizeContentLabel6, this->appLevelLabel6, false));
+    this->appGridHash.insert(7, new AppGrid(this->appFrame7, this->appPicLabel7, this->appNameLabel7, this->appSizeContentLabel7, this->appLevelLabel7, false));
+    this->appGridHash.insert(8, new AppGrid(this->appFrame8, this->appPicLabel8, this->appNameLabel8, this->appSizeContentLabel8, this->appLevelLabel8, false));
+    this->appGridHash.insert(9, new AppGrid(this->appFrame9, this->appPicLabel9, this->appNameLabel9, this->appSizeContentLabel9, this->appLevelLabel9, false));
+
+    // clear all the app
+    this->hideAllAppGrid();
+
+    // init star picture hash
+    QPixmap starOnePm;
+    if (!starOnePm.load(":/images/starOne.png")) {
+        qWarning("Failed to load images/starOne.png");
+    }
+    this->starHash.insert(1, starOnePm);
+    QPixmap starTwoPm;
+    if (!starTwoPm.load(":/images/starTwo.png")) {
+        qWarning("Failed to load images/starTwo.png");
+    }
+    this->starHash.insert(2, starTwoPm);
+    QPixmap starThreePm;
+    if (!starThreePm.load(":/images/starThree.png")) {
+        qWarning("Failed to load images/starThree.png");
+    }
+    this->starHash.insert(3, starThreePm);
+    QPixmap starFourPm;
+    if (!starFourPm.load(":/images/starFour.png")) {
+        qWarning("Failed to load images/starFour.png");
+    }
+    this->starHash.insert(4, starFourPm);
+    QPixmap starFivePm;
+    if (!starFivePm.load(":/images/starFive.png")) {
+        qWarning("Failed to load images/starFive.png");
+    }
+    this->starHash.insert(5, starFivePm);
+
+    // init default app grid
+    this->displayAppList(TYPE_USER_CHOICE);
+}
+
+void InstallationWidget::hideAllAppGrid()
+{
+    QHashIterator<int, AppGrid *> iter(this->appGridHash);
+    while(iter.hasNext()) {
+        AppGrid *appGrid = iter.next().value();
+        appGrid->appFrame->hide();
+    }
 }
 
 
@@ -122,20 +166,20 @@ void InstallationWidget::changeOptionButtonAndAppList(int type, QPushButton *pus
 
 void InstallationWidget::displayAppList(int type)
 {
+    this->hideAllAppGrid();
     QList<AppInfo *> appInfoList = this->appList->fetchApplist(type);
-    int count = 0;
+    int count = 1;
     QList<AppInfo *>::iterator it;
-    for(it = appInfoList.begin(); it != appInfoList.end(); ++it)
+    for(it = appInfoList.begin(); it != appInfoList.end() && count<10; ++it)
     {
         AppInfo *app = *it;
-        qDebug() << app->getId()          \
-                 << app->getName()        \
-                 << app->getSize()        \
-                 << app->getSummary()     \
-                 << app->getDetail()      \
-                 << app->getLevel()       \
-                 << app->getPic().size();
-
+        AppGrid * ag = this->appGridHash[count];
+        ag->appNameLabel->setText(app->getName());
+        ag->appPicLabel->setPixmap(app->getPic());
+        ag->appSizeContentLabel->setText(QString::number(app->getSize()) + "M");
+        ag->appLevelLabel->setPixmap(this->starHash[app->getLevel()]);
+        ag->appFrame->show();
+        count++;
     }
 }
 

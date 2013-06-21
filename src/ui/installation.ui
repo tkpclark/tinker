@@ -227,10 +227,16 @@
       </property>
       <item>
        <widget class="QWidget" name="navigationWidget" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="maximumSize">
          <size>
           <width>164</width>
-          <height>16777215</height>
+          <height>373</height>
          </size>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -610,7 +616,22 @@
       </item>
       <item>
        <widget class="QWidget" name="listWidget" native="true">
-        <layout class="QGridLayout" name="gridLayout_2">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>483</width>
+          <height>373</height>
+         </size>
+        </property>
+        <layout class="QGridLayout" name="appGridLayout">
+         <property name="sizeConstraint">
+          <enum>QLayout::SetMaximumSize</enum>
+         </property>
          <property name="margin">
           <number>0</number>
          </property>

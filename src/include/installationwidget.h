@@ -9,11 +9,11 @@
 #include <QLabel>
 #include <QHash>
 
-#define TYPE_USER_CHOICE 0
-#define TYPE_INDISPENSABLE 1
-#define TYPE_FINE_GAME 2
-#define TYPE_NEW_APP 3
-#define TYPE_RECOMMEND 4
+#define TYPE_USER_CHOICE 1
+#define TYPE_INDISPENSABLE 2
+#define TYPE_FINE_GAME 3
+#define TYPE_NEW_APP 4
+#define TYPE_RECOMMEND 5
 
 
 class ChoosedOption
@@ -27,7 +27,8 @@ public:
 class AppGrid
 {
 public:
-    AppGrid(QLabel *appPicLabel, QLabel *appNameLabel, QLabel *appSizeContentLabel, QLabel *appLevelLabel, bool selected);
+    AppGrid(QFrame *appFrame, QLabel *appPicLabel, QLabel *appNameLabel, QLabel *appSizeContentLabel, QLabel *appLevelLabel, bool selected);
+    QFrame *appFrame;
     QLabel *appPicLabel;
     QLabel *appNameLabel;
     QLabel *appSizeContentLabel;
@@ -44,6 +45,7 @@ public:
     void changeOptionButtonAndAppList(int type, QPushButton *pushButton, QLabel *tickLabel);
     void displayAppList(int type);
     void changeSelectionState(QPushButton *pushButton, QLabel *tickLabel, int posion);
+    void hideAllAppGrid();
 
 signals:
 
@@ -74,7 +76,7 @@ private:
     QString cancelChoose;
     AppList *appList;
     QHash<int, AppGrid *> appGridHash;
-
+    QHash<int, QPixmap> starHash;
 };
 
 #endif // INSTALLATIONWIDGET_H
