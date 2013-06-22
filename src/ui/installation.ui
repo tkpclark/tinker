@@ -479,7 +479,7 @@
              <height>56</height>
             </size>
            </property>
-           <layout class="QHBoxLayout" name="horizontalLayout_9">
+           <layout class="QHBoxLayout" name="horizontalLayout_49">
             <property name="spacing">
              <number>0</number>
             </property>
@@ -640,6 +640,18 @@
          </property>
          <item row="0" column="0">
           <widget class="QFrame" name="appFrame1">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>161</width>
+             <height>124</height>
+            </size>
+           </property>
            <property name="frameShape">
             <enum>QFrame::Box</enum>
            </property>
@@ -884,6 +896,18 @@
          </item>
          <item row="0" column="1">
           <widget class="QFrame" name="appFrame2">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>161</width>
+             <height>124</height>
+            </size>
+           </property>
            <property name="frameShape">
             <enum>QFrame::Box</enum>
            </property>
@@ -1128,6 +1152,18 @@
          </item>
          <item row="0" column="2">
           <widget class="QFrame" name="appFrame3">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>161</width>
+             <height>124</height>
+            </size>
+           </property>
            <property name="frameShape">
             <enum>QFrame::Box</enum>
            </property>
@@ -1860,6 +1896,18 @@
          </item>
          <item row="1" column="2">
           <widget class="QFrame" name="appFrame6">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>161</width>
+             <height>124</height>
+            </size>
+           </property>
            <property name="frameShape">
             <enum>QFrame::Box</enum>
            </property>
@@ -2104,6 +2152,18 @@
          </item>
          <item row="2" column="0">
           <widget class="QFrame" name="appFrame7">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>161</width>
+             <height>124</height>
+            </size>
+           </property>
            <property name="frameShape">
             <enum>QFrame::Box</enum>
            </property>
@@ -2348,6 +2408,18 @@
          </item>
          <item row="2" column="1">
           <widget class="QFrame" name="appFrame8">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>161</width>
+             <height>124</height>
+            </size>
+           </property>
            <property name="frameShape">
             <enum>QFrame::Box</enum>
            </property>
@@ -2592,6 +2664,18 @@
          </item>
          <item row="2" column="2">
           <widget class="QFrame" name="appFrame9">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>161</width>
+             <height>124</height>
+            </size>
+           </property>
            <property name="frameShape">
             <enum>QFrame::Box</enum>
            </property>
@@ -2872,6 +2956,12 @@
             </property>
             <item>
              <widget class="QLabel" name="choosedLabel">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
@@ -2922,7 +3012,7 @@
                    <number>0</number>
                   </property>
                   <item>
-                   <widget class="QLabel" name="choosedAppPicLabel1">
+                   <widget class="QLabel" name="choosedAppDotLabel1">
                     <property name="maximumSize">
                      <size>
                       <width>10</width>
@@ -2944,7 +3034,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLabel" name="choosedAppTextLabel1">
+                   <widget class="QLabel" name="choosedAppNameLabel1">
                     <property name="maximumSize">
                      <size>
                       <width>90</width>
@@ -2981,7 +3071,7 @@
                    <number>0</number>
                   </property>
                   <item>
-                   <widget class="QLabel" name="choosedAppPicLabel2">
+                   <widget class="QLabel" name="choosedAppDotLabel2">
                     <property name="maximumSize">
                      <size>
                       <width>10</width>
@@ -3000,7 +3090,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLabel" name="choosedAppTextLabel2">
+                   <widget class="QLabel" name="choosedAppNameLabel2">
                     <property name="maximumSize">
                      <size>
                       <width>90</width>
@@ -3039,7 +3129,7 @@
                    <number>0</number>
                   </property>
                   <item>
-                   <widget class="QLabel" name="choosedAppPicLabel3">
+                   <widget class="QLabel" name="choosedAppDotLabel3">
                     <property name="maximumSize">
                      <size>
                       <width>10</width>
@@ -3058,7 +3148,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLabel" name="choosedAppTextLabel3">
+                   <widget class="QLabel" name="choosedAppNameLabel3">
                     <property name="maximumSize">
                      <size>
                       <width>90</width>
@@ -3097,7 +3187,7 @@
                    <number>0</number>
                   </property>
                   <item>
-                   <widget class="QLabel" name="choosedAppPicLabel4">
+                   <widget class="QLabel" name="choosedAppDotLabel4">
                     <property name="maximumSize">
                      <size>
                       <width>10</width>
@@ -3116,7 +3206,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLabel" name="choosedAppTextLabel4">
+                   <widget class="QLabel" name="choosedAppNameLabel4">
                     <property name="maximumSize">
                      <size>
                       <width>90</width>
@@ -3155,7 +3245,7 @@
                    <number>0</number>
                   </property>
                   <item>
-                   <widget class="QLabel" name="choosedAppPicLabel5">
+                   <widget class="QLabel" name="choosedAppDotLabel5">
                     <property name="maximumSize">
                      <size>
                       <width>10</width>
@@ -3174,7 +3264,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLabel" name="choosedAppTextLabel5">
+                   <widget class="QLabel" name="choosedAppNameLabel5">
                     <property name="maximumSize">
                      <size>
                       <width>90</width>
@@ -3213,7 +3303,7 @@
                    <number>0</number>
                   </property>
                   <item>
-                   <widget class="QLabel" name="choosedAppPicLabel6">
+                   <widget class="QLabel" name="choosedAppDotLabel6">
                     <property name="maximumSize">
                      <size>
                       <width>10</width>
@@ -3232,7 +3322,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLabel" name="choosedAppTextLabel6">
+                   <widget class="QLabel" name="choosedAppNameLabel6">
                     <property name="maximumSize">
                      <size>
                       <width>90</width>
