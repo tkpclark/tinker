@@ -19,7 +19,7 @@ ChoosedOption::ChoosedOption(QPushButton *pushButton, QLabel *tickLabel)
     this->tickLabel = tickLabel;
 }
 
-AppGrid::AppGrid(QFrame *appFrame, QLabel *appPicLabel, QLabel *appNameLabel, QLabel *appSizeContentLabel, QLabel *appLevelLabel, QWidget *appPicWordWidget, QFrame *appSelectionFrame, QPushButton *appSelectionPushButton, QLabel *appTickPicLabel, bool selected)
+AppGrid::AppGrid(QFrame *appFrame, QLabel *appPicLabel, QLabel *appNameLabel, QLabel *appSizeContentLabel, QLabel *appLevelLabel, QWidget *appPicWordWidget, QFrame *appSelectionFrame, QPushButton *appSelectionPushButton, QLabel *appTickPicLabel)
 {
     this->appFrame = appFrame;
     this->appPicLabel = appPicLabel;
@@ -30,7 +30,6 @@ AppGrid::AppGrid(QFrame *appFrame, QLabel *appPicLabel, QLabel *appNameLabel, QL
     this->appSelectionFrame = appSelectionFrame;
     this->appSelectionPushButton = appSelectionPushButton;
     this->appTickPicLabel = appTickPicLabel;
-    this->selected = selected;
 }
 
 ChoosedAppItem::ChoosedAppItem(QLabel *choosedAppDotLabel, QLabel *choosedAppNameLabel)
@@ -44,6 +43,50 @@ InstallationWidget::InstallationWidget(QWidget *parent) :
 {
     this->setupUi(this);
 
+    this->initPictures();
+
+    // init default option
+    this->currentChoosedOption = new ChoosedOption(this->userChoicePushButton, this->userChoiceTickLabel);
+
+    // init app selection button text
+    this->chooseInstall = this->chooseInstall.fromLocal8Bit("选择安装");
+    this->cancelChoose = this->cancelChoose.fromLocal8Bit("取消选择");
+
+    this->initTimer();
+
+    // display user name
+    TinkerMainWindow *tk = dynamic_cast<TinkerMainWindow*>(this->parent());
+    if(tk->getUserName().isEmpty())
+    {
+        this->userNameWordLabel->setText("USER008");
+    }
+    else
+    {
+        this->userNameWordLabel->setText(tk->getUserName());
+    }
+
+    // init appList
+    this->appList = new AppList;
+
+    this->initAppGridHash();
+
+    this->initChoosedAppItemHash();
+
+    this->page = PAGE_DEFAULT;
+    this->size = SIZE_DEFAULT;
+    this->type = TYPE_USER_CHOICE;
+
+    // hide choosed app
+    this->hideChoosedApp();
+
+    this->installPushButton->setEnabled(false);
+
+    // init default app grid
+    this->displayAppList(type, page, size);
+}
+
+void InstallationWidget::initPictures()
+{
     // init choice option tick
     QPixmap pixmap;
     if (!pixmap.load(":/images/tick.png")) {
@@ -107,44 +150,6 @@ InstallationWidget::InstallationWidget(QWidget *parent) :
     }
     this->dotPixmap = dotPixmap;
 
-    // init default option
-    this->currentChoosedOption = new ChoosedOption(this->userChoicePushButton, this->userChoiceTickLabel);
-
-    // init app selection button text
-    this->chooseInstall = this->chooseInstall.fromLocal8Bit("选择安装");
-    this->cancelChoose = this->cancelChoose.fromLocal8Bit("取消选择");
-
-    // init time display
-    this->timeLabel->setText(QDateTime::currentDateTime().toString("hh:mm AP"));
-    QTimer *timer = new QTimer;
-    connect(timer,SIGNAL(timeout()),this,SLOT(updateTime()));
-    timer->start(60000);    // update every 1 min
-
-    // display user name
-    TinkerMainWindow *tk = dynamic_cast<TinkerMainWindow*>(this->parent());
-    if(tk->getUserName().isEmpty())
-    {
-        this->userNameWordLabel->setText("USER008");
-    }
-    else
-    {
-        this->userNameWordLabel->setText(tk->getUserName());
-    }
-
-    // init appList
-    this->appList = new AppList;
-
-    // init appGridHash
-    this->appGridHash.insert(1, new AppGrid(this->appFrame1, this->appPicLabel1, this->appNameLabel1, this->appSizeContentLabel1, this->appLevelLabel1, this->appPicWordWidget1, this->appSelectionFrame1, this->appSelectionPushButton1, this->appTickPicLabel1, false));
-    this->appGridHash.insert(2, new AppGrid(this->appFrame2, this->appPicLabel2, this->appNameLabel2, this->appSizeContentLabel2, this->appLevelLabel2, this->appPicWordWidget2, this->appSelectionFrame2, this->appSelectionPushButton2, this->appTickPicLabel2, false));
-    this->appGridHash.insert(3, new AppGrid(this->appFrame3, this->appPicLabel3, this->appNameLabel3, this->appSizeContentLabel3, this->appLevelLabel3, this->appPicWordWidget3, this->appSelectionFrame3, this->appSelectionPushButton3, this->appTickPicLabel3, false));
-    this->appGridHash.insert(4, new AppGrid(this->appFrame4, this->appPicLabel4, this->appNameLabel4, this->appSizeContentLabel4, this->appLevelLabel4, this->appPicWordWidget4, this->appSelectionFrame4, this->appSelectionPushButton4, this->appTickPicLabel4, false));
-    this->appGridHash.insert(5, new AppGrid(this->appFrame5, this->appPicLabel5, this->appNameLabel5, this->appSizeContentLabel5, this->appLevelLabel5, this->appPicWordWidget5, this->appSelectionFrame5, this->appSelectionPushButton5, this->appTickPicLabel5, false));
-    this->appGridHash.insert(6, new AppGrid(this->appFrame6, this->appPicLabel6, this->appNameLabel6, this->appSizeContentLabel6, this->appLevelLabel6, this->appPicWordWidget6, this->appSelectionFrame6, this->appSelectionPushButton6, this->appTickPicLabel6, false));
-    this->appGridHash.insert(7, new AppGrid(this->appFrame7, this->appPicLabel7, this->appNameLabel7, this->appSizeContentLabel7, this->appLevelLabel7, this->appPicWordWidget7, this->appSelectionFrame7, this->appSelectionPushButton7, this->appTickPicLabel7, false));
-    this->appGridHash.insert(8, new AppGrid(this->appFrame8, this->appPicLabel8, this->appNameLabel8, this->appSizeContentLabel8, this->appLevelLabel8, this->appPicWordWidget8, this->appSelectionFrame8, this->appSelectionPushButton8, this->appTickPicLabel8, false));
-    this->appGridHash.insert(9, new AppGrid(this->appFrame9, this->appPicLabel9, this->appNameLabel9, this->appSizeContentLabel9, this->appLevelLabel9, this->appPicWordWidget9, this->appSelectionFrame9, this->appSelectionPushButton9, this->appTickPicLabel9, false));
-
     // init star picture hash
     QPixmap starOnePm;
     if (!starOnePm.load(":/images/starOne.png")) {
@@ -171,21 +176,37 @@ InstallationWidget::InstallationWidget(QWidget *parent) :
         qWarning("Failed to load images/starFive.png");
     }
     this->starHash.insert(5, starFivePm);
+}
 
-    // init choosed app item
+void InstallationWidget::initTimer()
+{
+    this->timeLabel->setText(QDateTime::currentDateTime().toString("hh:mm AP"));
+    QTimer *timer = new QTimer;
+    connect(timer,SIGNAL(timeout()),this,SLOT(updateTime()));
+    timer->start(60000);    // update every 1 min
+}
+
+void InstallationWidget::initAppGridHash()
+{
+    this->appGridHash.insert(1, new AppGrid(this->appFrame1, this->appPicLabel1, this->appNameLabel1, this->appSizeContentLabel1, this->appLevelLabel1, this->appPicWordWidget1, this->appSelectionFrame1, this->appSelectionPushButton1, this->appTickPicLabel1));
+    this->appGridHash.insert(2, new AppGrid(this->appFrame2, this->appPicLabel2, this->appNameLabel2, this->appSizeContentLabel2, this->appLevelLabel2, this->appPicWordWidget2, this->appSelectionFrame2, this->appSelectionPushButton2, this->appTickPicLabel2));
+    this->appGridHash.insert(3, new AppGrid(this->appFrame3, this->appPicLabel3, this->appNameLabel3, this->appSizeContentLabel3, this->appLevelLabel3, this->appPicWordWidget3, this->appSelectionFrame3, this->appSelectionPushButton3, this->appTickPicLabel3));
+    this->appGridHash.insert(4, new AppGrid(this->appFrame4, this->appPicLabel4, this->appNameLabel4, this->appSizeContentLabel4, this->appLevelLabel4, this->appPicWordWidget4, this->appSelectionFrame4, this->appSelectionPushButton4, this->appTickPicLabel4));
+    this->appGridHash.insert(5, new AppGrid(this->appFrame5, this->appPicLabel5, this->appNameLabel5, this->appSizeContentLabel5, this->appLevelLabel5, this->appPicWordWidget5, this->appSelectionFrame5, this->appSelectionPushButton5, this->appTickPicLabel5));
+    this->appGridHash.insert(6, new AppGrid(this->appFrame6, this->appPicLabel6, this->appNameLabel6, this->appSizeContentLabel6, this->appLevelLabel6, this->appPicWordWidget6, this->appSelectionFrame6, this->appSelectionPushButton6, this->appTickPicLabel6));
+    this->appGridHash.insert(7, new AppGrid(this->appFrame7, this->appPicLabel7, this->appNameLabel7, this->appSizeContentLabel7, this->appLevelLabel7, this->appPicWordWidget7, this->appSelectionFrame7, this->appSelectionPushButton7, this->appTickPicLabel7));
+    this->appGridHash.insert(8, new AppGrid(this->appFrame8, this->appPicLabel8, this->appNameLabel8, this->appSizeContentLabel8, this->appLevelLabel8, this->appPicWordWidget8, this->appSelectionFrame8, this->appSelectionPushButton8, this->appTickPicLabel8));
+    this->appGridHash.insert(9, new AppGrid(this->appFrame9, this->appPicLabel9, this->appNameLabel9, this->appSizeContentLabel9, this->appLevelLabel9, this->appPicWordWidget9, this->appSelectionFrame9, this->appSelectionPushButton9, this->appTickPicLabel9));
+}
+
+void InstallationWidget::initChoosedAppItemHash()
+{
     this->choosedAppItemHash.insert(1, new ChoosedAppItem(this->choosedAppDotLabel1, this->choosedAppNameLabel1));
     this->choosedAppItemHash.insert(2, new ChoosedAppItem(this->choosedAppDotLabel2, this->choosedAppNameLabel2));
     this->choosedAppItemHash.insert(3, new ChoosedAppItem(this->choosedAppDotLabel3, this->choosedAppNameLabel3));
     this->choosedAppItemHash.insert(4, new ChoosedAppItem(this->choosedAppDotLabel4, this->choosedAppNameLabel4));
     this->choosedAppItemHash.insert(5, new ChoosedAppItem(this->choosedAppDotLabel5, this->choosedAppNameLabel5));
     this->choosedAppItemHash.insert(6, new ChoosedAppItem(this->choosedAppDotLabel6, this->choosedAppNameLabel6));
-
-    this->page = PAGE_DEFAULT;
-    this->size = SIZE_DEFAULT;
-    this->type = TYPE_USER_CHOICE;
-
-    // init default app grid
-    this->displayAppList(type, page, size);
 }
 
 void InstallationWidget::hideAllAppGrid()
@@ -196,8 +217,10 @@ void InstallationWidget::hideAllAppGrid()
         appGrid->appPicWordWidget->hide();
         appGrid->appSelectionFrame->hide();
     }
+}
 
-    // hide choosed wiget
+void InstallationWidget::hideChoosedApp()
+{
     QHashIterator<int, ChoosedAppItem *> it(this->choosedAppItemHash);
     while(it.hasNext()) {
         ChoosedAppItem *choosedAppItem = it.next().value();
@@ -240,7 +263,9 @@ void InstallationWidget::changeOptionButtonAndAppList(int type, QPushButton *pus
     this->currentChoosedOption->pushButton = pushButton;
     this->currentChoosedOption->tickLabel = tickLabel;
 
-    this->selectedAppIds.clear();
+    this->selectedAppHash.clear();
+
+    this->hideChoosedApp();
 
     // display app list
     this->displayAppList(type, PAGE_DEFAULT, SIZE_DEFAULT);
@@ -255,8 +280,7 @@ void InstallationWidget::displayAppList(int type, int page, int size)
     {
         AppInfo *app = appInfoList.at(i);
         AppGrid * ag = this->appGridHash[++count];
-        ag->appId = app->getId();
-        ag->appSize = app->getSize();
+        ag->appInfo = app;
         ag->appNameLabel->setText(app->getName());
         ag->appPicLabel->setPixmap(app->getPic());
         ag->appSizeContentLabel->setText(QString::number(app->getSize()) + "M");
@@ -267,7 +291,7 @@ void InstallationWidget::displayAppList(int type, int page, int size)
         QPalette pal = ag->appSelectionPushButton->palette();
         pal.setColor(QPalette::ButtonText, Qt::black);
         ag->appSelectionPushButton->setPalette(pal);
-        if(this->selectedAppIds.contains(ag->appId))
+        if(this->selectedAppHash.contains(app->getId()))
         {
             this->toSelectedState(ag->appSelectionPushButton, ag->appTickPicLabel);
         }
@@ -319,15 +343,6 @@ void InstallationWidget::displayAppList(int type, int page, int size)
 //    }
 }
 
-void InstallationWidget::addSelectedApp(int appId)
-{
-    this->selectedAppIds.insert(appId);
-}
-
-void InstallationWidget::removeSelectedApp(int appId)
-{
-    this->selectedAppIds.remove(appId);
-}
 
 void InstallationWidget::toCancelledState(QPushButton *appSelectionPushButton, QLabel *appTickPicLabel)
 {
@@ -375,37 +390,58 @@ void InstallationWidget::on_recommendPushButton_clicked()
 void InstallationWidget::changeSelectionState(QPushButton *pushButton, QLabel *tickLabel, int position)
 {
     const QPixmap *tickPixmap = tickLabel->pixmap();
+    AppInfo *app = this->appGridHash[position]->appInfo;
     if(tickPixmap != 0 && !tickPixmap->isNull())
     {
         this->toCancelledState(pushButton, tickLabel);
-        this->removeSelectedApp(this->appGridHash[position]->appId);
-        if(this->selectedAppIds.size() < this->choosedAppItemHash.size()) {
-            ChoosedAppItem * appItem = this->choosedAppItemHash[this->selectedAppIds.size()+1];
-            appItem->choosedAppDotLabel->hide();
-            appItem->choosedAppNameLabel->hide();
+        this->selectedAppHash.remove(app->getId());
+        QHashIterator<int, ChoosedAppItem *> iter(this->choosedAppItemHash);
+        while(iter.hasNext())
+        {
+            ChoosedAppItem * appItem = iter.next().value();
+            if(appItem->appId == app->getId()) {
+                this->hideChoosedApp();
+                QHashIterator<int, AppInfo *> it(this->selectedAppHash);
+                for(int i = 1; it.hasNext() && i <= this->choosedAppItemHash.size(); ++i)
+                {
+                    AppInfo *appInfo = it.next().value();
+                    ChoosedAppItem * item = this->choosedAppItemHash[i];
+                    item->appId = appInfo->getId();
+                    item->choosedAppNameLabel->setText(appInfo->getName());
+                    item->choosedAppDotLabel->show();
+                    item->choosedAppNameLabel->show();
+                }
+                break;
+            }
         }
-        this->totalAppSize -= this->appGridHash[position]->appSize;
-        QString text;
-        text.append(text.fromLocal8Bit("共")).append(QString::number(this->selectedAppIds.size())).append(text.fromLocal8Bit("款应用")).append(text.fromLocal8Bit("共")).append(QString::number(this->totalAppSize)).append("M");
-        this->choosedSumLabel->setText(text);
-        if(this->selectedAppIds.isEmpty()) {
+        if(this->selectedAppHash.isEmpty()) {
             this->choosedSumLabel->setText("");
+            this->installPushButton->setEnabled(false);
+        }
+        else
+        {
+            this->totalAppSize -= app->getSize();
+            QString text;
+            text.append(text.fromLocal8Bit("共")).append(QString::number(this->selectedAppHash.size())).append(text.fromLocal8Bit("款应用\n")).append(text.fromLocal8Bit("共")).append(QString::number(this->totalAppSize)).append("M");
+            this->choosedSumLabel->setText(text);
         }
     }
     else
     {
+        this->installPushButton->setEnabled(true);
         this->toSelectedState(pushButton, tickLabel);
-        this->addSelectedApp(this->appGridHash[position]->appId);
-        if(this->selectedAppIds.size() <= this->choosedAppItemHash.size()) {
-            ChoosedAppItem * appItem = this->choosedAppItemHash[this->selectedAppIds.size()];
+        this->selectedAppHash.insert(app->getId(), app);
+        if(this->selectedAppHash.size() <= this->choosedAppItemHash.size()) {
+            ChoosedAppItem * appItem = this->choosedAppItemHash[this->selectedAppHash.size()];
             appItem->choosedAppDotLabel->setPixmap(this->dotPixmap);
-            appItem->choosedAppNameLabel->setText(this->appGridHash[position]->appNameLabel->text());
+            appItem->choosedAppNameLabel->setText(app->getName());
+            appItem->appId = app->getId();
             appItem->choosedAppDotLabel->show();
             appItem->choosedAppNameLabel->show();
         }
-        this->totalAppSize += this->appGridHash[position]->appSize;
+        this->totalAppSize += app->getSize();
         QString text;
-        text.append(text.fromLocal8Bit("共")).append(QString::number(this->selectedAppIds.size())).append(text.fromLocal8Bit("款应用")).append(text.fromLocal8Bit("共")).append(QString::number(this->totalAppSize)).append("M");
+        text.append(text.fromLocal8Bit("共")).append(QString::number(this->selectedAppHash.size())).append(text.fromLocal8Bit("款应用\n")).append(text.fromLocal8Bit("共")).append(QString::number(this->totalAppSize)).append("M");
         this->choosedSumLabel->setText(text);
     }
 }
@@ -463,4 +499,17 @@ void InstallationWidget::on_leftPushButton_clicked()
 void InstallationWidget::on_rightPushButton_clicked()
 {
     this->displayAppList(this->type, ++this->page, this->size);
+}
+
+void InstallationWidget::on_installPushButton_clicked()
+{
+    this->appList->installApplist(this->selectedAppHash.values());
+    this->selectedAppHash.clear();
+    this->hideChoosedApp();
+    QHashIterator<int, AppGrid *> iter(this->appGridHash);
+    while(iter.hasNext()) {
+        AppGrid *appGrid = iter.next().value();
+        this->toCancelledState(appGrid->appSelectionPushButton, appGrid->appTickPicLabel);
+    }
+    this->installPushButton->setEnabled(false);
 }

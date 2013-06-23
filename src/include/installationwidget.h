@@ -30,7 +30,7 @@ public:
 class AppGrid
 {
 public:
-    AppGrid(QFrame *appFrame, QLabel *appPicLabel, QLabel *appNameLabel, QLabel *appSizeContentLabel, QLabel *appLevelLabel, QWidget *appPicWordWidget, QFrame *appSelectionFrame, QPushButton *appSelectionPushButton, QLabel *appTickPicLabel, bool selected);
+    AppGrid(QFrame *appFrame, QLabel *appPicLabel, QLabel *appNameLabel, QLabel *appSizeContentLabel, QLabel *appLevelLabel, QWidget *appPicWordWidget, QFrame *appSelectionFrame, QPushButton *appSelectionPushButton, QLabel *appTickPicLabel);
     QFrame *appFrame;
     QLabel *appPicLabel;
     QLabel *appNameLabel;
@@ -41,8 +41,7 @@ public:
     QPushButton *appSelectionPushButton;
     QLabel *appTickPicLabel;
     bool selected;
-    int appId;
-    double appSize;
+    AppInfo *appInfo;
 };
 
 class ChoosedAppItem
@@ -51,6 +50,7 @@ public:
     ChoosedAppItem(QLabel *choosedAppDotLabel, QLabel *choosedAppNameLabel);
     QLabel *choosedAppDotLabel;
     QLabel *choosedAppNameLabel;
+    int appId;
 };
 
 class InstallationWidget : public QWidget, public Ui::InstallationWidget
@@ -58,15 +58,18 @@ class InstallationWidget : public QWidget, public Ui::InstallationWidget
     Q_OBJECT
 public:
     explicit InstallationWidget(QWidget *parent = 0);
+    void initPictures();
+    void initTimer();
+    void initAppGridHash();
+    void initChoosedAppItemHash();
     void getTickPixmap();
     void changeOptionButtonAndAppList(int type, QPushButton *pushButton, QLabel *tickLabel);
     void displayAppList(int type, int page, int size);
     void changeSelectionState(QPushButton *pushButton, QLabel *tickLabel, int position);
     void hideAllAppGrid();
-    void addSelectedApp(int appId);
-    void removeSelectedApp(int appId);
     void toSelectedState(QPushButton *appSelectionPushButton, QLabel *appTickPicLabel);
     void toCancelledState(QPushButton *appSelectionPushButton, QLabel *appTickPicLabel);
+    void hideChoosedApp();
 
 signals:
 
@@ -89,6 +92,7 @@ public slots:
     void on_appSelectionPushButton9_clicked();
     void on_leftPushButton_clicked();
     void on_rightPushButton_clicked();
+    void on_installPushButton_clicked();
 
 
 private:
@@ -111,7 +115,7 @@ private:
     int page;
     int size;
     int type;
-    QSet<int> selectedAppIds;
+    QHash<int, AppInfo *> selectedAppHash;
     double totalAppSize;
     QHash<int, ChoosedAppItem *> choosedAppItemHash;
     QPixmap dotPixmap;
