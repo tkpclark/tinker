@@ -7,6 +7,7 @@ TinkerMainWindow::TinkerMainWindow(QWidget *parent) :
     QMainWindow(parent)
 {
     this->setupUi(this);
+    this->setWindowTitle("Tinker");
     this->initMainWindow();
     this->initOtherWidgets();
 }
@@ -16,7 +17,7 @@ void TinkerMainWindow::initMainWindow()
     int x = this->width()/4;
     int y =this->height()/8;
     this->setContentsMargins(x,y,x,y);
-//    this->showFullScreen();
+    this->showFullScreen();
     this->resize(800, 480);
     setWindowFlags(Qt::FramelessWindowHint);
 }
