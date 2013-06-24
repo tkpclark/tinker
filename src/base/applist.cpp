@@ -81,8 +81,8 @@ AppList::AppList()
     */
 
 
-//    QString xmlFileName = "../../../../tinker/data/test.xml";
-    QString xmlFileName = "../tinker_git/data/test.xml";
+    QString xmlFileName = "../data/applist.xml";
+//    QString xmlFileName = "../tinker_git/data/test.xml";
     this->loadXMLData(xmlFileName);
 }
 //to get a list of certain category

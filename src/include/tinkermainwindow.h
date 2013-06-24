@@ -13,6 +13,7 @@ public:
     void initMainWindow();
     void initOtherWidgets();
     QString getUserName();
+    void initEnv();
 
 signals:
 

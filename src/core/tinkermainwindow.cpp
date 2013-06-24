@@ -2,6 +2,7 @@
 #include "src/include/installationwidget.h"
 #include <QMessageBox>
 #include <QRegExp>
+#include <QTextCodec>
 
 TinkerMainWindow::TinkerMainWindow(QWidget *parent) :
     QMainWindow(parent)
@@ -10,7 +11,16 @@ TinkerMainWindow::TinkerMainWindow(QWidget *parent) :
     this->setWindowTitle("Tinker");
     this->initMainWindow();
     this->initOtherWidgets();
+    this->initEnv();
 }
+void TinkerMainWindow::initEnv()
+{
+    QTextCodec *codec = QTextCodec::codecForName("GBK");
+    QTextCodec::setCodecForLocale(codec);
+    QTextCodec::setCodecForCStrings(codec);
+    QTextCodec::setCodecForTr(codec);
+}
+
 
 void TinkerMainWindow::initMainWindow()
 {
