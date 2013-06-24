@@ -27,9 +27,10 @@ void TinkerMainWindow::initMainWindow()
     int x = this->width()/4;
     int y =this->height()/8;
     this->setContentsMargins(x,y,x,y);
-    this->showFullScreen();
-    this->resize(800, 480);
+    //this->showFullScreen();
+
     setWindowFlags(Qt::FramelessWindowHint);
+    this->resize(800, 480);
 }
 
 void TinkerMainWindow::initOtherWidgets()

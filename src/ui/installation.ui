@@ -906,7 +906,7 @@
                  <property name="font">
                   <font>
                    <family>Lucida Grande</family>
-                   <pointsize>11</pointsize>
+                   <pointsize>8</pointsize>
                   </font>
                  </property>
                  <property name="layoutDirection">
