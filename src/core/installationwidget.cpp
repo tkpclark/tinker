@@ -220,6 +220,7 @@ void InstallationWidget::hideAllAppGrid()
         AppGrid *appGrid = iter.next().value();
         appGrid->appPicWordWidget->hide();
         appGrid->appSelectionFrame->hide();
+        this->disconnect(appGrid->appPicPushButton, SIGNAL(clicked()), this, SLOT(enterDetailPage()));
     }
 }
 
@@ -531,5 +532,4 @@ void InstallationWidget::enterDetailPage()
     QPushButton* btn = qobject_cast<QPushButton*>(sender());
     detailWidget->displayAppDetail(btn->property(this->propertyName).value<AppInfo *>());
     detailWidget->show();
-    this->disconnect(btn, SIGNAL(clicked()), this, SLOT(enterDetailPage()));
 }
