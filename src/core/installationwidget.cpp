@@ -1,5 +1,6 @@
 #include "src/include/installationwidget.h"
 #include "src/include/tinkermainwindow.h"
+#include "src/include/detailwidget.h"
 
 #include <QTimer>
 #include <QDateTime>
@@ -11,6 +12,7 @@
 #include <QBitmap>
 #include <QHashIterator>
 #include <qmath.h>
+#include <QVariant>
 
 
 ChoosedOption::ChoosedOption(QPushButton *pushButton, QLabel *tickLabel)
@@ -19,10 +21,10 @@ ChoosedOption::ChoosedOption(QPushButton *pushButton, QLabel *tickLabel)
     this->tickLabel = tickLabel;
 }
 
-AppGrid::AppGrid(QFrame *appFrame, QLabel *appPicLabel, QLabel *appNameLabel, QLabel *appSizeContentLabel, QLabel *appLevelLabel, QWidget *appPicWordWidget, QFrame *appSelectionFrame, QPushButton *appSelectionPushButton, QLabel *appTickPicLabel)
+AppGrid::AppGrid(QFrame *appFrame, QPushButton *appPicPushButton, QLabel *appNameLabel, QLabel *appSizeContentLabel, QLabel *appLevelLabel, QWidget *appPicWordWidget, QFrame *appSelectionFrame, QPushButton *appSelectionPushButton, QLabel *appTickPicLabel)
 {
     this->appFrame = appFrame;
-    this->appPicLabel = appPicLabel;
+    this->appPicPushButton = appPicPushButton;
     this->appNameLabel = appNameLabel;
     this->appSizeContentLabel = appSizeContentLabel;
     this->appLevelLabel = appLevelLabel;
@@ -42,6 +44,8 @@ InstallationWidget::InstallationWidget(QWidget *parent) :
     QWidget(parent)
 {
     this->setupUi(this);
+
+    this->propertyName = "APP_DETAIL_PROPERTY_NAME";
 
     this->initPictures();
 
@@ -188,15 +192,15 @@ void InstallationWidget::initTimer()
 
 void InstallationWidget::initAppGridHash()
 {
-    this->appGridHash.insert(1, new AppGrid(this->appFrame1, this->appPicLabel1, this->appNameLabel1, this->appSizeContentLabel1, this->appLevelLabel1, this->appPicWordWidget1, this->appSelectionFrame1, this->appSelectionPushButton1, this->appTickPicLabel1));
-    this->appGridHash.insert(2, new AppGrid(this->appFrame2, this->appPicLabel2, this->appNameLabel2, this->appSizeContentLabel2, this->appLevelLabel2, this->appPicWordWidget2, this->appSelectionFrame2, this->appSelectionPushButton2, this->appTickPicLabel2));
-    this->appGridHash.insert(3, new AppGrid(this->appFrame3, this->appPicLabel3, this->appNameLabel3, this->appSizeContentLabel3, this->appLevelLabel3, this->appPicWordWidget3, this->appSelectionFrame3, this->appSelectionPushButton3, this->appTickPicLabel3));
-    this->appGridHash.insert(4, new AppGrid(this->appFrame4, this->appPicLabel4, this->appNameLabel4, this->appSizeContentLabel4, this->appLevelLabel4, this->appPicWordWidget4, this->appSelectionFrame4, this->appSelectionPushButton4, this->appTickPicLabel4));
-    this->appGridHash.insert(5, new AppGrid(this->appFrame5, this->appPicLabel5, this->appNameLabel5, this->appSizeContentLabel5, this->appLevelLabel5, this->appPicWordWidget5, this->appSelectionFrame5, this->appSelectionPushButton5, this->appTickPicLabel5));
-    this->appGridHash.insert(6, new AppGrid(this->appFrame6, this->appPicLabel6, this->appNameLabel6, this->appSizeContentLabel6, this->appLevelLabel6, this->appPicWordWidget6, this->appSelectionFrame6, this->appSelectionPushButton6, this->appTickPicLabel6));
-    this->appGridHash.insert(7, new AppGrid(this->appFrame7, this->appPicLabel7, this->appNameLabel7, this->appSizeContentLabel7, this->appLevelLabel7, this->appPicWordWidget7, this->appSelectionFrame7, this->appSelectionPushButton7, this->appTickPicLabel7));
-    this->appGridHash.insert(8, new AppGrid(this->appFrame8, this->appPicLabel8, this->appNameLabel8, this->appSizeContentLabel8, this->appLevelLabel8, this->appPicWordWidget8, this->appSelectionFrame8, this->appSelectionPushButton8, this->appTickPicLabel8));
-    this->appGridHash.insert(9, new AppGrid(this->appFrame9, this->appPicLabel9, this->appNameLabel9, this->appSizeContentLabel9, this->appLevelLabel9, this->appPicWordWidget9, this->appSelectionFrame9, this->appSelectionPushButton9, this->appTickPicLabel9));
+    this->appGridHash.insert(1, new AppGrid(this->appFrame1, this->appPicPushButton1, this->appNameLabel1, this->appSizeContentLabel1, this->appLevelLabel1, this->appPicWordWidget1, this->appSelectionFrame1, this->appSelectionPushButton1, this->appTickPicLabel1));
+    this->appGridHash.insert(2, new AppGrid(this->appFrame2, this->appPicPushButton2, this->appNameLabel2, this->appSizeContentLabel2, this->appLevelLabel2, this->appPicWordWidget2, this->appSelectionFrame2, this->appSelectionPushButton2, this->appTickPicLabel2));
+    this->appGridHash.insert(3, new AppGrid(this->appFrame3, this->appPicPushButton3, this->appNameLabel3, this->appSizeContentLabel3, this->appLevelLabel3, this->appPicWordWidget3, this->appSelectionFrame3, this->appSelectionPushButton3, this->appTickPicLabel3));
+    this->appGridHash.insert(4, new AppGrid(this->appFrame4, this->appPicPushButton4, this->appNameLabel4, this->appSizeContentLabel4, this->appLevelLabel4, this->appPicWordWidget4, this->appSelectionFrame4, this->appSelectionPushButton4, this->appTickPicLabel4));
+    this->appGridHash.insert(5, new AppGrid(this->appFrame5, this->appPicPushButton5, this->appNameLabel5, this->appSizeContentLabel5, this->appLevelLabel5, this->appPicWordWidget5, this->appSelectionFrame5, this->appSelectionPushButton5, this->appTickPicLabel5));
+    this->appGridHash.insert(6, new AppGrid(this->appFrame6, this->appPicPushButton6, this->appNameLabel6, this->appSizeContentLabel6, this->appLevelLabel6, this->appPicWordWidget6, this->appSelectionFrame6, this->appSelectionPushButton6, this->appTickPicLabel6));
+    this->appGridHash.insert(7, new AppGrid(this->appFrame7, this->appPicPushButton7, this->appNameLabel7, this->appSizeContentLabel7, this->appLevelLabel7, this->appPicWordWidget7, this->appSelectionFrame7, this->appSelectionPushButton7, this->appTickPicLabel7));
+    this->appGridHash.insert(8, new AppGrid(this->appFrame8, this->appPicPushButton8, this->appNameLabel8, this->appSizeContentLabel8, this->appLevelLabel8, this->appPicWordWidget8, this->appSelectionFrame8, this->appSelectionPushButton8, this->appTickPicLabel8));
+    this->appGridHash.insert(9, new AppGrid(this->appFrame9, this->appPicPushButton9, this->appNameLabel9, this->appSizeContentLabel9, this->appLevelLabel9, this->appPicWordWidget9, this->appSelectionFrame9, this->appSelectionPushButton9, this->appTickPicLabel9));
 }
 
 void InstallationWidget::initChoosedAppItemHash()
@@ -282,7 +286,10 @@ void InstallationWidget::displayAppList(int type, int page, int size)
         AppGrid * ag = this->appGridHash[++count];
         ag->appInfo = app;
         ag->appNameLabel->setText(app->getName());
-        ag->appPicLabel->setPixmap(app->getPic());
+        ag->appPicPushButton->setIcon(QPixmap(app->getPic()));
+        QVariant var;
+        var.setValue(app);
+        ag->appPicPushButton->setProperty(this->propertyName, var);
         ag->appSizeContentLabel->setText(QString::number(app->getSize()) + "M");
         ag->appLevelLabel->setPixmap(this->starHash[app->getLevel()]);
 //        ag->appFrame->setStyleSheet("background-color: rgb(223,223,223);");
@@ -301,6 +308,7 @@ void InstallationWidget::displayAppList(int type, int page, int size)
         }
         ag->appPicWordWidget->show();
         ag->appSelectionFrame->show();
+        this->connect(ag->appPicPushButton, SIGNAL(clicked()), this, SLOT(enterDetailPage()));
     }
     if(page == 1)
     {
@@ -512,4 +520,16 @@ void InstallationWidget::on_installPushButton_clicked()
         this->toCancelledState(appGrid->appSelectionPushButton, appGrid->appTickPicLabel);
     }
     this->installPushButton->setEnabled(false);
+}
+
+void InstallationWidget::enterDetailPage()
+{
+    this->appListWidget->hide();
+    this->pageWidget->hide();
+    DetailWidget *detailWidget = new DetailWidget(this);
+    this->verticalLayout->addWidget(detailWidget);
+    QPushButton* btn = qobject_cast<QPushButton*>(sender());
+    detailWidget->displayAppDetail(btn->property(this->propertyName).value<AppInfo *>());
+    detailWidget->show();
+    this->disconnect(btn, SIGNAL(clicked()), this, SLOT(enterDetailPage()));
 }

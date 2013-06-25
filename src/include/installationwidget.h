@@ -2,6 +2,7 @@
 #define INSTALLATIONWIDGET_H
 #include "ui_installation.h"
 #include "src/include/applist.h"
+#include "src/include/appinfo.h"
 
 #include <QWidget>
 #include <QPixmap>
@@ -18,6 +19,8 @@
 #define PAGE_DEFAULT 1
 #define SIZE_DEFAULT 9
 
+Q_DECLARE_METATYPE(AppInfo *);
+
 
 class ChoosedOption
 {
@@ -30,9 +33,9 @@ public:
 class AppGrid
 {
 public:
-    AppGrid(QFrame *appFrame, QLabel *appPicLabel, QLabel *appNameLabel, QLabel *appSizeContentLabel, QLabel *appLevelLabel, QWidget *appPicWordWidget, QFrame *appSelectionFrame, QPushButton *appSelectionPushButton, QLabel *appTickPicLabel);
+    AppGrid(QFrame *appFrame, QPushButton *appPicPushButton, QLabel *appNameLabel, QLabel *appSizeContentLabel, QLabel *appLevelLabel, QWidget *appPicWordWidget, QFrame *appSelectionFrame, QPushButton *appSelectionPushButton, QLabel *appTickPicLabel);
     QFrame *appFrame;
-    QLabel *appPicLabel;
+    QPushButton *appPicPushButton;
     QLabel *appNameLabel;
     QLabel *appSizeContentLabel;
     QLabel *appLevelLabel;
@@ -93,9 +96,10 @@ public slots:
     void on_leftPushButton_clicked();
     void on_rightPushButton_clicked();
     void on_installPushButton_clicked();
+    void enterDetailPage();
 
 
-private:
+public:
     QPixmap tickPixmap;
     QPixmap selectionButtonTickPixmap;
     QIcon upIcon;
@@ -119,6 +123,7 @@ private:
     double totalAppSize;
     QHash<int, ChoosedAppItem *> choosedAppItemHash;
     QPixmap dotPixmap;
+    char *propertyName;
 };
 
 #endif // INSTALLATIONWIDGET_H

@@ -23,20 +23,17 @@
    <property name="spacing">
     <number>7</number>
    </property>
-   <property name="leftMargin">
-    <number>6</number>
-   </property>
-   <property name="topMargin">
-    <number>0</number>
-   </property>
-   <property name="rightMargin">
-    <number>6</number>
-   </property>
-   <property name="bottomMargin">
+   <property name="margin">
     <number>0</number>
    </property>
    <item>
     <widget class="QWidget" name="toolWidget" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="maximumSize">
       <size>
        <width>800</width>
@@ -50,16 +47,7 @@
       <property name="sizeConstraint">
        <enum>QLayout::SetDefaultConstraint</enum>
       </property>
-      <property name="leftMargin">
-       <number>0</number>
-      </property>
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <property name="rightMargin">
-       <number>0</number>
-      </property>
-      <property name="bottomMargin">
+      <property name="margin">
        <number>0</number>
       </property>
       <item>
@@ -226,10 +214,10 @@
        <number>3</number>
       </property>
       <property name="leftMargin">
-       <number>0</number>
+       <number>6</number>
       </property>
       <property name="rightMargin">
-       <number>0</number>
+       <number>6</number>
       </property>
       <property name="bottomMargin">
        <number>2</number>
@@ -252,16 +240,7 @@
          <property name="spacing">
           <number>7</number>
          </property>
-         <property name="leftMargin">
-          <number>0</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
@@ -650,16 +629,7 @@
          <property name="sizeConstraint">
           <enum>QLayout::SetMaximumSize</enum>
          </property>
-         <property name="leftMargin">
-          <number>0</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
+         <property name="margin">
           <number>0</number>
          </property>
          <property name="spacing">
@@ -707,20 +677,11 @@
                <property name="spacing">
                 <number>0</number>
                </property>
-               <property name="leftMargin">
-                <number>0</number>
-               </property>
-               <property name="topMargin">
-                <number>0</number>
-               </property>
-               <property name="rightMargin">
-                <number>0</number>
-               </property>
-               <property name="bottomMargin">
+               <property name="margin">
                 <number>0</number>
                </property>
                <item>
-                <widget class="QLabel" name="appPicLabel1">
+                <widget class="QPushButton" name="appPicPushButton1">
                  <property name="maximumSize">
                   <size>
                    <width>60</width>
@@ -730,10 +691,17 @@
                  <property name="text">
                   <string/>
                  </property>
-                 <property name="pixmap">
-                  <pixmap resource="../../images.qrc">:/images/taobao.png</pixmap>
+                 <property name="icon">
+                  <iconset resource="../../images.qrc">
+                   <normaloff>:/images/taobao.png</normaloff>:/images/taobao.png</iconset>
                  </property>
-                 <property name="scaledContents">
+                 <property name="iconSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="flat">
                   <bool>true</bool>
                  </property>
                 </widget>
@@ -778,16 +746,7 @@
                      <property name="spacing">
                       <number>0</number>
                      </property>
-                     <property name="leftMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="topMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="rightMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="bottomMargin">
+                     <property name="margin">
                       <number>0</number>
                      </property>
                      <item>
@@ -905,7 +864,7 @@
                  </property>
                  <property name="font">
                   <font>
-                   <family>Lucida Grande</family>
+                   <family>微软雅黑</family>
                    <pointsize>8</pointsize>
                   </font>
                  </property>
@@ -984,20 +943,11 @@
                <property name="spacing">
                 <number>0</number>
                </property>
-               <property name="leftMargin">
-                <number>0</number>
-               </property>
-               <property name="topMargin">
-                <number>0</number>
-               </property>
-               <property name="rightMargin">
-                <number>0</number>
-               </property>
-               <property name="bottomMargin">
+               <property name="margin">
                 <number>0</number>
                </property>
                <item>
-                <widget class="QLabel" name="appPicLabel2">
+                <widget class="QPushButton" name="appPicPushButton2">
                  <property name="maximumSize">
                   <size>
                    <width>60</width>
@@ -1007,10 +957,17 @@
                  <property name="text">
                   <string/>
                  </property>
-                 <property name="pixmap">
-                  <pixmap resource="../../images.qrc">:/images/baidu.png</pixmap>
+                 <property name="icon">
+                  <iconset resource="../../images.qrc">
+                   <normaloff>:/images/baidu.png</normaloff>:/images/baidu.png</iconset>
                  </property>
-                 <property name="scaledContents">
+                 <property name="iconSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="flat">
                   <bool>true</bool>
                  </property>
                 </widget>
@@ -1055,16 +1012,7 @@
                      <property name="spacing">
                       <number>0</number>
                      </property>
-                     <property name="leftMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="topMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="rightMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="bottomMargin">
+                     <property name="margin">
                       <number>0</number>
                      </property>
                      <item>
@@ -1258,20 +1206,11 @@
                <property name="spacing">
                 <number>0</number>
                </property>
-               <property name="leftMargin">
-                <number>0</number>
-               </property>
-               <property name="topMargin">
-                <number>0</number>
-               </property>
-               <property name="rightMargin">
-                <number>0</number>
-               </property>
-               <property name="bottomMargin">
+               <property name="margin">
                 <number>0</number>
                </property>
                <item>
-                <widget class="QLabel" name="appPicLabel3">
+                <widget class="QPushButton" name="appPicPushButton3">
                  <property name="maximumSize">
                   <size>
                    <width>60</width>
@@ -1281,10 +1220,17 @@
                  <property name="text">
                   <string/>
                  </property>
-                 <property name="pixmap">
-                  <pixmap resource="../../images.qrc">:/images/angrybird.png</pixmap>
+                 <property name="icon">
+                  <iconset resource="../../images.qrc">
+                   <normaloff>:/images/angrybird.png</normaloff>:/images/angrybird.png</iconset>
                  </property>
-                 <property name="scaledContents">
+                 <property name="iconSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="flat">
                   <bool>true</bool>
                  </property>
                 </widget>
@@ -1329,16 +1275,7 @@
                      <property name="spacing">
                       <number>0</number>
                      </property>
-                     <property name="leftMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="topMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="rightMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="bottomMargin">
+                     <property name="margin">
                       <number>0</number>
                      </property>
                      <item>
@@ -1520,20 +1457,11 @@
                <property name="spacing">
                 <number>0</number>
                </property>
-               <property name="leftMargin">
-                <number>0</number>
-               </property>
-               <property name="topMargin">
-                <number>0</number>
-               </property>
-               <property name="rightMargin">
-                <number>0</number>
-               </property>
-               <property name="bottomMargin">
+               <property name="margin">
                 <number>0</number>
                </property>
                <item>
-                <widget class="QLabel" name="appPicLabel4">
+                <widget class="QPushButton" name="appPicPushButton4">
                  <property name="maximumSize">
                   <size>
                    <width>60</width>
@@ -1543,10 +1471,17 @@
                  <property name="text">
                   <string/>
                  </property>
-                 <property name="pixmap">
-                  <pixmap resource="../../images.qrc">:/images/sohunews.png</pixmap>
+                 <property name="icon">
+                  <iconset resource="../../images.qrc">
+                   <normaloff>:/images/sohunews.png</normaloff>:/images/sohunews.png</iconset>
                  </property>
-                 <property name="scaledContents">
+                 <property name="iconSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="flat">
                   <bool>true</bool>
                  </property>
                 </widget>
@@ -1591,16 +1526,7 @@
                      <property name="spacing">
                       <number>0</number>
                      </property>
-                     <property name="leftMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="topMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="rightMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="bottomMargin">
+                     <property name="margin">
                       <number>0</number>
                      </property>
                      <item>
@@ -1782,20 +1708,11 @@
                <property name="spacing">
                 <number>0</number>
                </property>
-               <property name="leftMargin">
-                <number>0</number>
-               </property>
-               <property name="topMargin">
-                <number>0</number>
-               </property>
-               <property name="rightMargin">
-                <number>0</number>
-               </property>
-               <property name="bottomMargin">
+               <property name="margin">
                 <number>0</number>
                </property>
                <item>
-                <widget class="QLabel" name="appPicLabel5">
+                <widget class="QPushButton" name="appPicPushButton5">
                  <property name="maximumSize">
                   <size>
                    <width>60</width>
@@ -1805,10 +1722,17 @@
                  <property name="text">
                   <string/>
                  </property>
-                 <property name="pixmap">
-                  <pixmap resource="../../images.qrc">:/images/sohuvideo.png</pixmap>
+                 <property name="icon">
+                  <iconset resource="../../images.qrc">
+                   <normaloff>:/images/sohuvideo.png</normaloff>:/images/sohuvideo.png</iconset>
                  </property>
-                 <property name="scaledContents">
+                 <property name="iconSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="flat">
                   <bool>true</bool>
                  </property>
                 </widget>
@@ -1853,16 +1777,7 @@
                      <property name="spacing">
                       <number>0</number>
                      </property>
-                     <property name="leftMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="topMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="rightMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="bottomMargin">
+                     <property name="margin">
                       <number>0</number>
                      </property>
                      <item>
@@ -2056,20 +1971,11 @@
                <property name="spacing">
                 <number>0</number>
                </property>
-               <property name="leftMargin">
-                <number>0</number>
-               </property>
-               <property name="topMargin">
-                <number>0</number>
-               </property>
-               <property name="rightMargin">
-                <number>0</number>
-               </property>
-               <property name="bottomMargin">
+               <property name="margin">
                 <number>0</number>
                </property>
                <item>
-                <widget class="QLabel" name="appPicLabel6">
+                <widget class="QPushButton" name="appPicPushButton6">
                  <property name="maximumSize">
                   <size>
                    <width>60</width>
@@ -2079,10 +1985,17 @@
                  <property name="text">
                   <string/>
                  </property>
-                 <property name="pixmap">
-                  <pixmap resource="../../images.qrc">:/images/kuaiyue.png</pixmap>
+                 <property name="icon">
+                  <iconset resource="../../images.qrc">
+                   <normaloff>:/images/kuaiyue.png</normaloff>:/images/kuaiyue.png</iconset>
                  </property>
-                 <property name="scaledContents">
+                 <property name="iconSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="flat">
                   <bool>true</bool>
                  </property>
                 </widget>
@@ -2127,16 +2040,7 @@
                      <property name="spacing">
                       <number>0</number>
                      </property>
-                     <property name="leftMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="topMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="rightMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="bottomMargin">
+                     <property name="margin">
                       <number>0</number>
                      </property>
                      <item>
@@ -2330,20 +2234,11 @@
                <property name="spacing">
                 <number>0</number>
                </property>
-               <property name="leftMargin">
-                <number>0</number>
-               </property>
-               <property name="topMargin">
-                <number>0</number>
-               </property>
-               <property name="rightMargin">
-                <number>0</number>
-               </property>
-               <property name="bottomMargin">
+               <property name="margin">
                 <number>0</number>
                </property>
                <item>
-                <widget class="QLabel" name="appPicLabel7">
+                <widget class="QPushButton" name="appPicPushButton7">
                  <property name="maximumSize">
                   <size>
                    <width>60</width>
@@ -2353,10 +2248,17 @@
                  <property name="text">
                   <string/>
                  </property>
-                 <property name="pixmap">
-                  <pixmap resource="../../images.qrc">:/images/qqbrowser.png</pixmap>
+                 <property name="icon">
+                  <iconset resource="../../images.qrc">
+                   <normaloff>:/images/qqbrowser.png</normaloff>:/images/qqbrowser.png</iconset>
                  </property>
-                 <property name="scaledContents">
+                 <property name="iconSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="flat">
                   <bool>true</bool>
                  </property>
                 </widget>
@@ -2401,16 +2303,7 @@
                      <property name="spacing">
                       <number>0</number>
                      </property>
-                     <property name="leftMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="topMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="rightMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="bottomMargin">
+                     <property name="margin">
                       <number>0</number>
                      </property>
                      <item>
@@ -2604,20 +2497,11 @@
                <property name="spacing">
                 <number>0</number>
                </property>
-               <property name="leftMargin">
-                <number>0</number>
-               </property>
-               <property name="topMargin">
-                <number>0</number>
-               </property>
-               <property name="rightMargin">
-                <number>0</number>
-               </property>
-               <property name="bottomMargin">
+               <property name="margin">
                 <number>0</number>
                </property>
                <item>
-                <widget class="QLabel" name="appPicLabel8">
+                <widget class="QPushButton" name="appPicPushButton8">
                  <property name="maximumSize">
                   <size>
                    <width>60</width>
@@ -2627,10 +2511,17 @@
                  <property name="text">
                   <string/>
                  </property>
-                 <property name="pixmap">
-                  <pixmap resource="../../images.qrc">:/images/yingyongbao.png</pixmap>
+                 <property name="icon">
+                  <iconset resource="../../images.qrc">
+                   <normaloff>:/images/yingyongbao.png</normaloff>:/images/yingyongbao.png</iconset>
                  </property>
-                 <property name="scaledContents">
+                 <property name="iconSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="flat">
                   <bool>true</bool>
                  </property>
                 </widget>
@@ -2675,16 +2566,7 @@
                      <property name="spacing">
                       <number>0</number>
                      </property>
-                     <property name="leftMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="topMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="rightMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="bottomMargin">
+                     <property name="margin">
                       <number>0</number>
                      </property>
                      <item>
@@ -2878,20 +2760,11 @@
                <property name="spacing">
                 <number>0</number>
                </property>
-               <property name="leftMargin">
-                <number>0</number>
-               </property>
-               <property name="topMargin">
-                <number>0</number>
-               </property>
-               <property name="rightMargin">
-                <number>0</number>
-               </property>
-               <property name="bottomMargin">
+               <property name="margin">
                 <number>0</number>
                </property>
                <item>
-                <widget class="QLabel" name="appPicLabel9">
+                <widget class="QPushButton" name="appPicPushButton9">
                  <property name="maximumSize">
                   <size>
                    <width>60</width>
@@ -2901,10 +2774,17 @@
                  <property name="text">
                   <string/>
                  </property>
-                 <property name="pixmap">
-                  <pixmap resource="../../images.qrc">:/images/chrome.png</pixmap>
+                 <property name="icon">
+                  <iconset resource="../../images.qrc">
+                   <normaloff>:/images/chrome.png</normaloff>:/images/chrome.png</iconset>
                  </property>
-                 <property name="scaledContents">
+                 <property name="iconSize">
+                  <size>
+                   <width>60</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="flat">
                   <bool>true</bool>
                  </property>
                 </widget>
@@ -2949,16 +2829,7 @@
                      <property name="spacing">
                       <number>0</number>
                      </property>
-                     <property name="leftMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="topMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="rightMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="bottomMargin">
+                     <property name="margin">
                       <number>0</number>
                      </property>
                      <item>
@@ -3125,16 +2996,7 @@
          <property name="spacing">
           <number>0</number>
          </property>
-         <property name="leftMargin">
-          <number>0</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
@@ -3191,16 +3053,7 @@
                <property name="spacing">
                 <number>0</number>
                </property>
-               <property name="leftMargin">
-                <number>0</number>
-               </property>
-               <property name="topMargin">
-                <number>0</number>
-               </property>
-               <property name="rightMargin">
-                <number>0</number>
-               </property>
-               <property name="bottomMargin">
+               <property name="margin">
                 <number>0</number>
                </property>
                <item>
@@ -3218,16 +3071,7 @@
                   <property name="spacing">
                    <number>0</number>
                   </property>
-                  <property name="leftMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="topMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="rightMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="bottomMargin">
+                  <property name="margin">
                    <number>0</number>
                   </property>
                   <item>
@@ -3286,16 +3130,7 @@
                   <property name="spacing">
                    <number>0</number>
                   </property>
-                  <property name="leftMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="topMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="rightMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="bottomMargin">
+                  <property name="margin">
                    <number>0</number>
                   </property>
                   <item>
@@ -3353,16 +3188,7 @@
                   <property name="spacing">
                    <number>0</number>
                   </property>
-                  <property name="leftMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="topMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="rightMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="bottomMargin">
+                  <property name="margin">
                    <number>0</number>
                   </property>
                   <item>
@@ -3420,16 +3246,7 @@
                   <property name="spacing">
                    <number>0</number>
                   </property>
-                  <property name="leftMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="topMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="rightMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="bottomMargin">
+                  <property name="margin">
                    <number>0</number>
                   </property>
                   <item>
@@ -3487,16 +3304,7 @@
                   <property name="spacing">
                    <number>0</number>
                   </property>
-                  <property name="leftMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="topMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="rightMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="bottomMargin">
+                  <property name="margin">
                    <number>0</number>
                   </property>
                   <item>
@@ -3554,16 +3362,7 @@
                   <property name="spacing">
                    <number>0</number>
                   </property>
-                  <property name="leftMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="topMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="rightMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="bottomMargin">
+                  <property name="margin">
                    <number>0</number>
                   </property>
                   <item>
@@ -3655,16 +3454,7 @@
             <property name="spacing">
              <number>0</number>
             </property>
-            <property name="leftMargin">
-             <number>3</number>
-            </property>
-            <property name="topMargin">
-             <number>3</number>
-            </property>
-            <property name="rightMargin">
-             <number>3</number>
-            </property>
-            <property name="bottomMargin">
+            <property name="margin">
              <number>3</number>
             </property>
             <item>
@@ -3709,16 +3499,7 @@
       </size>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_41">
-      <property name="leftMargin">
-       <number>0</number>
-      </property>
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <property name="rightMargin">
-       <number>0</number>
-      </property>
-      <property name="bottomMargin">
+      <property name="margin">
        <number>0</number>
       </property>
       <item>
@@ -3733,16 +3514,7 @@
          <property name="spacing">
           <number>0</number>
          </property>
-         <property name="leftMargin">
-          <number>0</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
@@ -3828,16 +3600,7 @@
          <property name="spacing">
           <number>0</number>
          </property>
-         <property name="leftMargin">
-          <number>0</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
@@ -3938,16 +3701,7 @@
          <property name="spacing">
           <number>0</number>
          </property>
-         <property name="leftMargin">
-          <number>0</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
+         <property name="margin">
           <number>0</number>
          </property>
          <item>
