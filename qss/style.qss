@@ -146,3 +146,6 @@ QWidget#detailWordPicWidget, #appDetailTextEdit {
     background-color: rgb(242,242,242);
 }
 
+QPushButton#backPushButton {
+    border:0px;
+}

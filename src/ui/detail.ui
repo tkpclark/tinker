@@ -492,7 +492,7 @@
               <property name="maximumSize">
                <size>
                 <width>532</width>
-                <height>100</height>
+                <height>80</height>
                </size>
               </property>
               <property name="font">
@@ -529,7 +529,38 @@ p, li { white-space: pre-wrap; }
           </widget>
          </item>
          <item>
-          <widget class="QWidget" name="widget_9" native="true"/>
+          <widget class="QWidget" name="widget_9" native="true">
+           <property name="maximumSize">
+            <size>
+             <width>532</width>
+             <height>158</height>
+            </size>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="appPosterPicLabel">
+              <property name="maximumSize">
+               <size>
+                <width>500</width>
+                <height>130</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap resource="../../images.qrc">:/images/taobaoposter.png</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
          </item>
         </layout>
        </widget>

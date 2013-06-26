@@ -1,9 +1,4 @@
 #include "src/include/detailwidget.h"
-#include <QTextDocument>
-#include <QTextCursor>
-#include <QTextBlock>
-#include <QTextBlockFormat>
-
 
 DetailWidget::DetailWidget(QWidget *parent) :
         QWidget(parent)
@@ -21,6 +16,7 @@ void DetailWidget::displayAppDetail(AppInfo *appInfo)
     this->appLevelLabel->setPixmap(this->parent->starHash[appInfo->getLevel()]);
     this->appIntroLabel->setText(appInfo->getSummary());
     this->appDetailTextEdit->setText(appInfo->getDetail().replace(QString("\\n"), "<br/>"));
+    this->appPosterPicLabel->setPixmap(appInfo->getPosterPic());
 }
 
 void DetailWidget::on_backPushButton_clicked()

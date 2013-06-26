@@ -29,5 +29,6 @@
         <file>images/left_gray.png</file>
         <file>images/right_gray.png</file>
         <file>images/up_gray.png</file>
+        <file>images/taobaoposter.png</file>
     </qresource>
 </RCC>
