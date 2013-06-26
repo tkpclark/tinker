@@ -11,6 +11,7 @@
 		<ApkPath>../apks/com.taobao.taobao.apk</ApkPath>
 		<PackageName>taobao</PackageName>
 		<Category>123</Category>
+		<Poster>../images/taobaoposter.png</Poster>
 	</AppInfo>
 	<AppInfo>
 		<Id>2</Id>
@@ -23,6 +24,7 @@
 		<ApkPath>../apks/com.baidu.searchbox_sj.apk</ApkPath>
 		<PackageName>packagename</PackageName>
 		<Category>125</Category>
+		<Poster>ccc</Poster>
 	</AppInfo>
 	<AppInfo>
 		<Id>3</Id>
@@ -35,6 +37,7 @@
 		<ApkPath>../apks/com.taobao.taobao.apk</ApkPath>
 		<PackageName>packagename</PackageName>
 		<Category>134</Category>
+		<Poster></Poster>
 	</AppInfo>
 	<AppInfo>
 		<Id>4</Id>
@@ -47,6 +50,7 @@
 		<ApkPath>../apks/com.taobao.taobao.apk</ApkPath>
 		<PackageName>packagename</PackageName>
 		<Category>12345</Category>
+		<Poster></Poster>
 	</AppInfo>
 	<AppInfo>
 		<Id>5</Id>
@@ -59,6 +63,7 @@
 		<ApkPath>../apks/com.taobao.taobao.apk</ApkPath>
 		<PackageName>packagename</PackageName>
 		<Category>13</Category>
+		<Poster></Poster>
 	</AppInfo>
 	<AppInfo>
 		<Id>6</Id>
@@ -71,6 +76,7 @@
 		<ApkPath>../apks/com.taobao.taobao.apk</ApkPath>
 		<PackageName>packagename</PackageName>
 		<Category>123</Category>
+		<Poster></Poster>
 	</AppInfo>
 	<AppInfo>
 		<Id>7</Id>
@@ -83,6 +89,7 @@
 		<ApkPath>../apks/com.taobao.taobao.apk</ApkPath>
 		<PackageName>packagename</PackageName>
 		<Category>123</Category>
+		<Poster></Poster>
 	</AppInfo>
 	<AppInfo>
 		<Id>8</Id>
@@ -95,6 +102,7 @@
 		<ApkPath>../apks/com.taobao.taobao.apk</ApkPath>
 		<PackageName>packagename</PackageName>
 		<Category>1235</Category>
+		<Poster></Poster>
 	</AppInfo>
 	<AppInfo>
 		<Id>9</Id>
@@ -107,6 +115,7 @@
 		<ApkPath>../apks/com.taobao.taobao.apk</ApkPath>
 		<PackageName>packagename</PackageName>
 		<Category>1235</Category>
+		<Poster></Poster>
 	</AppInfo>
 	<AppInfo>
 		<Id>10</Id>
@@ -119,6 +128,7 @@
 		<ApkPath>../apks/com.taobao.taobao.apk</ApkPath>
 		<PackageName>packagename</PackageName>
 		<Category>1235</Category>
+		<Poster></Poster>
 	</AppInfo>
 	<AppInfo>
 		<Id>11</Id>
@@ -131,6 +141,7 @@
 		<ApkPath>../apks/com.taobao.taobao.apk</ApkPath>
 		<PackageName>packagename</PackageName>
 		<Category>1235</Category>
+		<Poster></Poster>
 	</AppInfo>
 	<AppInfo>
 		<Id>12</Id>
@@ -143,6 +154,7 @@
 		<ApkPath>../apks/com.taobao.taobao.apk</ApkPath>
 		<PackageName>packagename</PackageName>
 		<Category>1235</Category>
+		<Poster></Poster>
 	</AppInfo>
 	<AppInfo>
 		<Id>13</Id>
@@ -155,6 +167,7 @@
 		<ApkPath>../apks/com.taobao.taobao.apk</ApkPath>
 		<PackageName>packagename</PackageName>
 		<Category>1235</Category>
+		<Poster></Poster>
 	</AppInfo>
 	<AppInfo>
 		<Id>14</Id>
@@ -167,6 +180,7 @@
 		<ApkPath>../apks/com.taobao.taobao.apk</ApkPath>
 		<PackageName>packagename</PackageName>
 		<Category>1235</Category>
+		<Poster></Poster>
 	</AppInfo>
 	<AppInfo>
 		<Id>15</Id>
@@ -179,6 +193,7 @@
 		<ApkPath>../apks/com.taobao.taobao.apk</ApkPath>
 		<PackageName>packagename</PackageName>
 		<Category>1235</Category>
+		<Poster></Poster>
 	</AppInfo>
 	<AppInfo>
 		<Id>16</Id>
@@ -191,6 +206,7 @@
 		<ApkPath>../apks/com.taobao.taobao.apk</ApkPath>
 		<PackageName>packagename</PackageName>
 		<Category>1235</Category>
+		<Poster></Poster>
 	</AppInfo>
 	<AppInfo>
 		<Id>17</Id>
@@ -203,6 +219,7 @@
 		<ApkPath>../apks/com.taobao.taobao.apk</ApkPath>
 		<PackageName>packagename</PackageName>
 		<Category>1235</Category>
+		<Poster></Poster>
 	</AppInfo>
 	<AppInfo>
 		<Id>18</Id>
@@ -215,6 +232,7 @@
 		<ApkPath>../apks/com.taobao.taobao.apk</ApkPath>
 		<PackageName>packagename</PackageName>
 		<Category>1235</Category>
+		<Poster></Poster>
 	</AppInfo>
 	<AppInfo>
 		<Id>19</Id>
@@ -227,5 +245,6 @@
 		<ApkPath>../apks/com.taobao.taobao.apk</ApkPath>
 		<PackageName>packagename</PackageName>
 		<Category>1235</Category>
+		<Poster></Poster>
 	</AppInfo>
 </AppList>

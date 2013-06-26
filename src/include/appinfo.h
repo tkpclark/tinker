@@ -16,7 +16,8 @@ public:
     void setDetail(const QString &detail);
     void setApkPath(const QString &apkPath);
     void setPackageName(const QString &packageName);
-    void setCategory(QString category);
+    void setCategory(const QString &category);
+    void setPosterPic(const QString &posterPic);
 
 
     int     getId();
@@ -29,6 +30,7 @@ public:
     QString getApkPath();
     QString getPackageName();
     QString getCategory();
+    QPixmap getPosterPic();
 
 private:
     int     id;
@@ -41,6 +43,7 @@ private:
     QString apkPath;
     QString packageName;
     QString category;
+    QPixmap posterPic;
 
 };
 

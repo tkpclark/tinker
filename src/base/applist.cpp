@@ -181,21 +181,27 @@ bool AppList::loadXMLData(QString &xmlFileName)
             {
                 tmpAppInfo.setCategory(appAttr.text());
             }
+            if(!appAttr.tagName().compare("Poster"))
+            {
+                qDebug() << "poster:" <<appAttr.text();
+                tmpAppInfo.setPosterPic(appAttr.text());
+            }
 
 
 
         }
 
         qDebug() << tmpAppInfo.getId();
-        qDebug() << tmpAppInfo.getName();
-        qDebug() << tmpAppInfo.getApkPath();
-        qDebug() << tmpAppInfo.getDetail();
-        qDebug() << tmpAppInfo.getLevel();
-        qDebug() << tmpAppInfo.getPackageName();
-        qDebug() << tmpAppInfo.getPic().size();
-        qDebug() << tmpAppInfo.getSize();
-        qDebug() << tmpAppInfo.getSummary();
-        qDebug() << tmpAppInfo.getCategory();
+//        qDebug() << tmpAppInfo.getName();
+//        qDebug() << tmpAppInfo.getApkPath();
+//        qDebug() << tmpAppInfo.getDetail();
+//        qDebug() << tmpAppInfo.getLevel();
+//        qDebug() << tmpAppInfo.getPackageName();
+//        qDebug() << tmpAppInfo.getPic().size();
+//        qDebug() << tmpAppInfo.getSize();
+//        qDebug() << tmpAppInfo.getSummary();
+//        qDebug() << tmpAppInfo.getCategory();
+        qDebug() << tmpAppInfo.getPosterPic().size();
 
 
         this->applist.append(tmpAppInfo);

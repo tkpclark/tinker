@@ -1,4 +1,5 @@
 #include "src/include/appinfo.h"
+#include <QDebug>
 
 AppInfo::AppInfo()
 {
@@ -50,11 +51,18 @@ void AppInfo::setPackageName(const QString &packageName)
     this->packageName=packageName;
 }
 
-void AppInfo::setCategory(QString category)
+void AppInfo::setCategory(const QString &category)
 {
     this->category=category;
 }
 
+void AppInfo::setPosterPic(const QString &posterPic)
+{
+    QPixmap pixmap(posterPic);
+    qDebug() << "postpic:" << posterPic;
+    this->posterPic=pixmap;
+    qDebug() << "size:" << this->posterPic.size();
+}
 
 //////////////get///////////////
 int AppInfo::getId()
@@ -108,3 +116,7 @@ QString AppInfo::getCategory()
     return this->category;
 }
 
+QPixmap AppInfo::getPosterPic()
+{
+    return this->posterPic;
+}
